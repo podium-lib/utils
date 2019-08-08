@@ -14,6 +14,7 @@ export interface AssetCss extends PodiumAsset {
     title?: Pick<HTMLLinkElement, 'title'>;
     media?: Pick<HTMLLinkElement, 'media'>;
     rel?: Pick<HTMLLinkElement, 'rel'>;
+    type?: Pick<HTMLLinkElement, 'type'>;
 }
 
 export interface AssetJs extends PodiumAsset {
