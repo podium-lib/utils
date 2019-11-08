@@ -62,6 +62,33 @@ exports[`.document() - js "type" is "esm" - should set type to module on script 
 </html>"
 `;
 
+exports[`.document() - js "type" is "fallback" - should wrap fallback scripts in ie comment block 1`] = `
+"<!doctype html>
+<html lang=\\"en-US\\">
+    <head>
+        <meta charset=\\"utf-8\\">
+        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\">
+        <meta http-equiv=\\"X-UA-Compatible\\" content=\\"IE=Edge\\">
+        <link href=\\"http://somecssurl1.com\\" type=\\"text/css\\">
+        <link href=\\"http://somecssurl2.com\\" type=\\"text/css\\">
+        <link href=\\"http://somecssurl3.com\\" type=\\"text/css\\">
+        <script src=\\"http://somejsurl1.com/main\\" type=\\"module\\"></script>
+        <script src=\\"http://somejsurl2.com/main\\" type=\\"module\\"></script>
+        <script src=\\"http://somejsurl3.com/main\\" type=\\"module\\"></script>
+        <![if !IE]>
+        <script src=\\"http://somejsurl1.com/ie11\\"></script>
+        <script src=\\"http://somejsurl2.com/ie11\\"></script>
+        <script src=\\"http://somejsurl3.com/ie11\\"></script>
+        <![endif]>
+        <title></title>
+        
+    </head>
+    <body>
+        
+    </body>
+</html>"
+`;
+
 exports[`.document() - no arguments given - should render template 1`] = `
 "<!doctype html>
 <html lang=\\"en-US\\">

@@ -73,3 +73,23 @@ test('.document() - js "type" is "esm" - should set type to module on script tag
     const result = document(incoming);
     expect(result).toMatchSnapshot();
 });
+
+test('.document() - js "type" is "fallback" - should wrap fallback scripts in ie comment block', () => {
+    const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES);
+    incoming.css = [
+        { value: 'http://somecssurl1.com', type: 'text/css' },
+        { value: 'http://somecssurl2.com', type: 'text/css' },
+        { value: 'http://somecssurl3.com', type: 'text/css' },
+    ];
+    incoming.js = [
+        { value: 'http://somejsurl1.com/main', type: 'module' },
+        { value: 'http://somejsurl1.com/ie11', type: 'fallback' },
+        { value: 'http://somejsurl2.com/main', type: 'module' },
+        { value: 'http://somejsurl2.com/ie11', type: 'fallback' },
+        { value: 'http://somejsurl3.com/main', type: 'module' },
+        { value: 'http://somejsurl3.com/ie11', type: 'fallback' },
+    ];
+
+    const result = document(incoming);
+    expect(result).toMatchSnapshot();
+});
