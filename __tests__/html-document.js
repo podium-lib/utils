@@ -83,11 +83,11 @@ test('.document() - js "type" is "fallback" - should wrap fallback scripts in ie
     ];
     incoming.js = [
         { value: 'http://somejsurl1.com/main', type: 'module' },
-        { value: 'http://somejsurl1.com/ie11', type: 'fallback' },
+        { value: 'http://somejsurl1.com/ie11', hint: 'fallback' },
         { value: 'http://somejsurl2.com/main', type: 'module' },
-        { value: 'http://somejsurl2.com/ie11', type: 'fallback' },
+        { value: 'http://somejsurl2.com/ie11', hint: 'fallback' },
         { value: 'http://somejsurl3.com/main', type: 'module' },
-        { value: 'http://somejsurl3.com/ie11', type: 'fallback' },
+        { value: 'http://somejsurl3.com/ie11', hint: 'fallback' },
     ];
 
     const result = document(incoming);
