@@ -293,3 +293,13 @@ test('Js() - set "src" - should throw', () => {
         obj.src = '/bar';
     }).toThrowError('Cannot set read-only property.');
 });
+
+test('Js() - hint given - should construct JSON with hint property', () => {
+    const obj = new Js({ value: '/foo', hint: 'fallback' });
+    const json = JSON.parse(JSON.stringify(obj));
+    expect(json).toEqual({
+        value: '/foo',
+        type: 'default',
+        hint: 'fallback',
+    });
+});
