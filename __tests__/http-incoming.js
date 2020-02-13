@@ -2,10 +2,7 @@
 
 const HttpIncoming = require('../lib/http-incoming');
 
-// TODO: This is silly, send PR to original-url.
-const SIMPLE_REQ = {
-    headers: {},
-};
+const SIMPLE_REQ = {};
 
 const ADVANCED_REQ = {
     headers: {
@@ -88,19 +85,14 @@ test('PodiumHttpIncoming.params - set value - should throw', () => {
     const incoming = new HttpIncoming(ADVANCED_REQ, SIMPLE_RES);
     expect(() => {
         incoming.params = 'foo';
-    }).toThrowError(
-        'Cannot set read-only property.',
-    );
+    }).toThrowError('Cannot set read-only property.');
 });
 
-test('PodiumHttpIncoming.url - set value - should throw', () => {
+test('PodiumHttpIncoming.url - set value - should set value', () => {
     expect.hasAssertions();
     const incoming = new HttpIncoming(ADVANCED_REQ, SIMPLE_RES);
-    expect(() => {
-        incoming.url = 'foo';
-    }).toThrowError(
-        'Cannot set read-only property.',
-    );
+    incoming.url = 'foo';
+    expect(incoming.url).toEqual('foo');
 });
 
 test('PodiumHttpIncoming.development - set value - should set value', () => {
@@ -127,9 +119,7 @@ test('PodiumHttpIncoming.css - set illegal value - should throw', () => {
 
     expect(() => {
         incoming.css = 'a_css';
-    }).toThrowError(
-        'Value for property ".css" must be an Array',
-    );
+    }).toThrowError('Value for property ".css" must be an Array');
 });
 
 test('PodiumHttpIncoming.js - set legal value - should set value', () => {
@@ -144,9 +134,7 @@ test('PodiumHttpIncoming.js - set illegal value - should throw', () => {
 
     expect(() => {
         incoming.js = 'a_js';
-    }).toThrowError(
-        'Value for property ".js" must be an Array',
-    );
+    }).toThrowError('Value for property ".js" must be an Array');
 });
 
 test('PodiumHttpIncoming.proxy - set value - should set value', () => {
@@ -169,18 +157,18 @@ test('PodiumHttpIncoming.view - no value - should return empty object', () => {
 test('PodiumHttpIncoming.view - set value - should set value', () => {
     const incoming = new HttpIncoming(ADVANCED_REQ, SIMPLE_RES);
     incoming.view = {
-        title: 'foo'
+        title: 'foo',
     };
     expect(incoming.view).toEqual({
-        title: 'foo'
+        title: 'foo',
     });
 });
 
 test('PodiumHttpIncoming.podlets - set legal value - should append values to .css and .js', () => {
     const incoming = new HttpIncoming(ADVANCED_REQ, SIMPLE_RES);
     incoming.podlets = [
-        { css: [ { value: 'foo.css' } ], js: [ { value: 'foo.js' } ] },
-        { css: [ { value: 'bar.css' } ], js: [ { value: 'bar.js' } ] },
+        { css: [{ value: 'foo.css' }], js: [{ value: 'foo.js' }] },
+        { css: [{ value: 'bar.css' }], js: [{ value: 'bar.js' }] },
     ];
     expect(incoming.css).toEqual([{ value: 'foo.css' }, { value: 'bar.css' }]);
     expect(incoming.js).toEqual([{ value: 'foo.js' }, { value: 'bar.js' }]);
@@ -189,9 +177,9 @@ test('PodiumHttpIncoming.podlets - set legal value - should append values to .cs
 test('PodiumHttpIncoming.podlets - set legal value - should append those values with .css and .js to .css and .js', () => {
     const incoming = new HttpIncoming(ADVANCED_REQ, SIMPLE_RES);
     incoming.podlets = [
-        { css: [ { value: 'foo.css' } ], js: [ { value: 'foo.js' } ] },
-        { css: [ { value: 'bar.css' } ], js: [ { value: 'bar.js' } ] },
-        { ssc: [ { value: 'xyz.css' } ], sj: [ { value: 'xyz.js' } ] },
+        { css: [{ value: 'foo.css' }], js: [{ value: 'foo.js' }] },
+        { css: [{ value: 'bar.css' }], js: [{ value: 'bar.js' }] },
+        { ssc: [{ value: 'xyz.css' }], sj: [{ value: 'xyz.js' }] },
     ];
     expect(incoming.css).toEqual([{ value: 'foo.css' }, { value: 'bar.css' }]);
     expect(incoming.js).toEqual([{ value: 'foo.js' }, { value: 'bar.js' }]);
@@ -210,7 +198,9 @@ test('PodiumHttpIncoming.podlets - get value - should throw', () => {
     const incoming = new HttpIncoming(ADVANCED_REQ, SIMPLE_RES);
     expect(() => {
         const foo = incoming.podlets; // eslint-disable-line no-unused-vars
-    }).toThrowError('The getter for .podlets is reserved for later implementation');
+    }).toThrowError(
+        'The getter for .podlets is reserved for later implementation',
+    );
 });
 
 test('PodiumHttpIncoming.toJSON() - call method - should return object without ".request" and ".response"', () => {
