@@ -60,7 +60,7 @@ test('PodiumHttpIncoming() - has forwarded - should set ignore hostname and use 
     const incoming = new HttpIncoming({
         headers: {
             host: 'localhost:3030',
-            'forwarded': 'host=example.com; proto=https'
+            forwarded: 'host=example.com; proto=https',
         },
         hostname: 'localhost',
         url: '/some/path',
@@ -212,7 +212,17 @@ test('PodiumHttpIncoming.view - set value - should set value', () => {
     });
 });
 
-test('PodiumHttpIncoming.podlets - set legal value - should append values to .css and .js', () => {
+test('PodiumHttpIncoming.podlets - set legal single value - should append values to .css and .js', () => {
+    const incoming = new HttpIncoming(ADVANCED_REQ, SIMPLE_RES);
+    incoming.podlets = {
+        css: [{ value: 'foo.css' }],
+        js: [{ value: 'foo.js' }],
+    };
+    expect(incoming.css).toEqual([{ value: 'foo.css' }]);
+    expect(incoming.js).toEqual([{ value: 'foo.js' }]);
+});
+
+test('PodiumHttpIncoming.podlets - set legal array value - should append values to .css and .js', () => {
     const incoming = new HttpIncoming(ADVANCED_REQ, SIMPLE_RES);
     incoming.podlets = [
         { css: [{ value: 'foo.css' }], js: [{ value: 'foo.js' }] },
@@ -231,14 +241,6 @@ test('PodiumHttpIncoming.podlets - set legal value - should append those values 
     ];
     expect(incoming.css).toEqual([{ value: 'foo.css' }, { value: 'bar.css' }]);
     expect(incoming.js).toEqual([{ value: 'foo.js' }, { value: 'bar.js' }]);
-});
-
-test('PodiumHttpIncoming.podlets - get illegal value - should throw', () => {
-    expect.hasAssertions();
-    const incoming = new HttpIncoming(ADVANCED_REQ, SIMPLE_RES);
-    expect(() => {
-        incoming.podlets = './foo.js';
-    }).toThrowError('Value for property ".podlets" must be an Array');
 });
 
 test('PodiumHttpIncoming.podlets - get value - should throw', () => {
