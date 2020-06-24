@@ -274,6 +274,15 @@ test('.buildScriptElement() - "async" property is "true" - should appended "asyn
     expect(result).toEqual('<script src="/foo" async></script>');
 });
 
+test('.buildScriptElement() - "data" property has a value - should appended "data" attribute to element', () => {
+    const obj = new AssetJs({
+        value: '/foo',
+        data: { foo: 'bar' },
+    });
+    const result = utils.buildScriptElement(obj);
+    expect(result).toEqual('<script src="/foo" data-foo="bar"></script>');
+});
+
 test('.buildScriptElement() - "defer" property is "true" - should appended "defer" attribute to element', () => {
     const obj = new AssetJs({
         value: '/foo',
