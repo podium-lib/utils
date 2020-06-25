@@ -29,7 +29,7 @@ test('Js() - no arguments given - should construct object with default values', 
     expect(obj.value).toEqual('/foo');
     expect(obj.type).toEqual('default');
     expect(obj.src).toEqual('/foo');
-    expect(obj.data).toEqual(undefined);
+    expect(obj.data).toEqual([]);
 });
 
 test('Js() - no arguments given - should construct JSON with default values', () => {
@@ -279,20 +279,32 @@ test('Js() - set "data" - should construct object as expected', () => {
         value: '/foo',
     });
 
-    obj.data = { foo: 'bar' };
+    obj.data = [{ 
+        key: 'foo',
+        value: 'bar'     
+    }];
 
-    expect(obj.data).toEqual({ foo: 'bar' });
+    expect(obj.data).toEqual([{ 
+        key: 'foo',
+        value: 'bar'     
+    }]);
     expect(obj.toHTML()).toEqual('<script src="/foo" data-foo="bar"></script>');
 
     const json = JSON.parse(JSON.stringify(obj));
     expect(json).toEqual({
         value: '/foo',
-        data: { foo: 'bar' },
+        data: [{ 
+            key: 'foo',
+            value: 'bar'     
+        }],
         type: 'default',
     });
 
     const repl = new Js(json);
-    expect(repl.data).toEqual({ foo: 'bar' });
+    expect(repl.data).toEqual([{ 
+        key: 'foo',
+        value: 'bar'     
+    }]);
 });
 
 test('Js() - set "value" - should throw', () => {
