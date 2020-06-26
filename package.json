@@ -18,8 +18,12 @@
     },
     "homepage": "https://podium-lib.io/",
     "files": [
-        "lib",
-        "index.d.ts"
+        "package.json",
+        "CHANGELOG.md",
+        "index.d.ts",
+        "README.md",
+        "LICENSE",
+        "lib"
     ],
     "main": "./lib/main.js",
     "types": "index.d.ts",
