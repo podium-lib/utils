@@ -25,6 +25,7 @@ export interface AssetJs extends PodiumAsset {
     async?: Pick<HTMLScriptElement, 'async'>;
     defer?: Pick<HTMLScriptElement, 'defer'>;
     type?: Pick<HTMLScriptElement, 'type'>;
+    data?: DOMStringMap;
 }
 
 export class HttpIncoming<T = { [key: string]: unknown }> {
@@ -52,5 +53,14 @@ export class HttpIncoming<T = { [key: string]: unknown }> {
 
     js: Array<AssetJs>;
 
-    toJSON(): { development: boolean, context: any, params: T, proxy: boolean, name: string; url: URL, css: Array<AssetCss>, js: Array<AssetJs> };
+    toJSON(): {
+        development: boolean;
+        context: any;
+        params: T;
+        proxy: boolean;
+        name: string;
+        url: URL;
+        css: Array<AssetCss>;
+        js: Array<AssetJs>;
+    };
 }
