@@ -265,6 +265,12 @@ test('.uriIsRelative() - "uri" is absolute - should return "false"', () => {
     );
 });
 
+test('.uriIsRelative() - "uri" is absolute without schema - should return "false"', () => {
+    expect(utils.uriIsRelative('//localhost:7000/manifest.json')).toBe(
+        false,
+    );
+});
+
 /**
  * .uriRelativeToAbsolute()
  */
