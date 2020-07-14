@@ -325,7 +325,6 @@ test('Js() - set "src" - should throw', () => {
     });
     expect(() => {
         obj.src = '/bar';
-        console.log('promp')
     }).toThrowError('Cannot set read-only property.');
 });
 
