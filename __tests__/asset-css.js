@@ -1,5 +1,6 @@
 'use strict';
 
+const { validate } = require('@podium/schemas');
 const Css = require('../lib/asset-css');
 
 test('Css() - object tag - should be PodiumAssetCss', () => {
@@ -341,4 +342,9 @@ test('Css() - set "href" - should throw', () => {
     expect(() => {
         obj.href = '/bar';
     }).toThrowError('Cannot set read-only property.');
+});
+
+test('Css() - validate object against schema - should validate', () => {
+    const obj = new Css({ value: '/foo' });
+    expect(validate.css([obj]).error).toEqual(false);
 });

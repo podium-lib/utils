@@ -1,5 +1,6 @@
 'use strict';
 
+const { validate } = require('@podium/schemas');
 const Js = require('../lib/asset-js');
 
 test('Js() - object tag - should be PodiumAssetJs', () => {
@@ -324,5 +325,11 @@ test('Js() - set "src" - should throw', () => {
     });
     expect(() => {
         obj.src = '/bar';
+        console.log('promp')
     }).toThrowError('Cannot set read-only property.');
+});
+
+test('Js() - validate object against schema - should validate', () => {
+    const obj = new Js({ value: '/foo' });
+    expect(validate.js([obj]).error).toEqual(false);
 });
