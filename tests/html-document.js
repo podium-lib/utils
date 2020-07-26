@@ -1,5 +1,6 @@
 'use strict';
 
+const tap = require('tap');
 const HttpIncoming = require('../lib/http-incoming');
 const document = require('../lib/html-document');
 
@@ -11,17 +12,14 @@ const SIMPLE_RES = {
     locals: {},
 };
 
-/**
- * .document()
- */
-
-test('.document() - no arguments given - should render template', () => {
+tap.test('.document() - no arguments given', (t) => {
     const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES);
     const result = document(incoming);
-    expect(result).toMatchSnapshot();
+    t.matchSnapshot(result, 'should render template');
+    t.end();
 });
 
-test('.document() - arguments given - should render template using values given', () => {
+tap.test('.document() - arguments given', (t) => {
     const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES);
     incoming.css = [{ value: 'http://somecssurl.com' }];
     incoming.js = [{ value: 'http://somejsurl.com' }];
@@ -36,11 +34,12 @@ test('.document() - arguments given - should render template using values given'
     const head = 'this goes in the head section';
     const body = 'this goes in the body section';
 
-    const result = document(incoming, body, head);
-    expect(result).toMatchSnapshot();
+    const result = document(incoming, body, head);    
+    t.matchSnapshot(result, 'should render template using values given');
+    t.end();
 });
 
-test('.document() - arguments given - handles v4 js and css syntax', () => {
+tap.test('.document() - arguments given - handles v4 js and css syntax', (t) => {
     const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES);
     incoming.css = [
         { value: 'http://somecssurl1.com', type: 'text/css' },
@@ -54,10 +53,11 @@ test('.document() - arguments given - handles v4 js and css syntax', () => {
     ];
 
     const result = document(incoming);
-    expect(result).toMatchSnapshot();
+    t.matchSnapshot(result, 'should render template using values given');
+    t.end();
 });
 
-test('.document() - js "type" is "esm" - should set type to module on script tags', () => {
+tap.test('.document() - js "type" is "esm"', (t) => {
     const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES);
     incoming.css = [
         { value: 'http://somecssurl1.com', type: 'text/css' },
@@ -71,5 +71,6 @@ test('.document() - js "type" is "esm" - should set type to module on script tag
     ];
 
     const result = document(incoming);
-    expect(result).toMatchSnapshot();
+    t.matchSnapshot(result, 'should set type to module on script tags');
+    t.end();
 });

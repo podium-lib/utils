@@ -30,24 +30,9 @@
     "scripts": {
         "lint": "eslint .",
         "lint:fix": "eslint --fix .",
-        "test": "jest",
-        "test:verbose": "jest --verbose",
-        "test:coverage": "jest --coverage",
+        "test": "tap --no-esm tests/*.js",
+        "test:snapshots:update": "tap --no-esm tests/*.js --snapshot",
         "bench": "node benchmark/benchmark.js"
-    },
-    "jest": {
-        "coveragePathIgnorePatterns": [
-            "test/"
-        ],
-        "coverageThreshold": {
-            "global": {
-                "branches": 100,
-                "functions": 100,
-                "lines": 100,
-                "statements": 100
-            }
-        },
-        "testEnvironment": "node"
     },
     "devDependencies": {
         "@semantic-release/changelog": "5.0.1",
@@ -64,8 +49,8 @@
         "eslint-config-prettier": "6.11.0",
         "eslint-plugin-import": "2.22.0",
         "eslint-plugin-prettier": "3.1.4",
-        "jest": "25.2.6",
-        "prettier": "2.0.2"
+        "prettier": "2.0.2",
+        "tap": "14.10.8"
     },
     "dependencies": {
         "original-url": "1.2.3",
