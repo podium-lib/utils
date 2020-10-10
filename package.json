@@ -67,7 +67,7 @@
         "prettier": "2.0.5"
     },
     "dependencies": {
-        "@podium/schemas": "4.0.4",
+        "@podium/schemas": "4.0.5",
         "original-url": "1.2.3",
         "camelcase": "6.1.0"
     }
