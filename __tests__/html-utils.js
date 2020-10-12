@@ -380,3 +380,93 @@ test('.buildScriptElement() - crossorigin boolean false', () => {
     const result = utils.buildScriptElement(obj);
     expect(result).toEqual(`<script src="/bar"></script>`);
 });
+
+test('.buildScriptAttributes() - basic', () => {
+    const obj = new AssetJs({ value: '/bar' });
+    expect(utils.buildScriptAttributes(obj)).toEqual([ 
+        { key: 'src', value: '/bar' }
+    ]);
+});
+
+test('.buildScriptAttributes() - advanced', () => {
+    const obj = new AssetJs({
+        value: '/bar',
+        crossorigin: true,
+        async: true,
+        integrity: 'fake',
+        defer: true,
+        type: 'module',
+    });
+    expect(utils.buildScriptAttributes(obj)).toEqual([ 
+        { key: 'src', value: '/bar' },
+        { key: 'type', value: 'module' },
+        { key: 'crossorigin' },
+        { key: 'integrity', value: 'fake' },
+        { key: 'async' },
+        { key: 'defer' },
+    ]);
+});
+
+test('.buildLinkAttributes() - basic', () => {
+    const obj = new AssetCss({ value: '/bar' });
+    expect(utils.buildLinkAttributes(obj)).toEqual([ 
+        { key: 'href', value: '/bar' },
+        { key: 'type', value: 'text/css' },
+        { key: 'rel', value: 'stylesheet' },
+    ]);
+});
+
+test('.buildLinkAttributes() - advanced', () => {
+    const obj = new AssetCss({
+        value: '/bar',
+        disabled: true,
+        hreflang: 'test1',
+        title: 'test2',
+        media: 'test3',
+        as: 'test4',
+        type: 'test5',
+        rel: 'test6',
+    });
+    expect(utils.buildLinkAttributes(obj)).toEqual([
+        { key: 'href', value: '/bar' },
+        { key: 'disabled', value: undefined },
+        { key: 'hreflang', value: 'test1' },
+        { key: 'title', value: 'test2' },
+        { key: 'media', value: 'test3' },
+        { key: 'as', value: 'test4' },
+        { key: 'type', value: 'test5' },
+        { key: 'rel', value: 'test6' },
+    ]);
+});
+
+test('.buildReactScriptAttributes()', () => {
+    const obj = new AssetJs({
+        value: '/bar',
+        crossorigin: true,
+        async: true,
+        defer: true,
+        nomodule: true,
+    });
+    expect(utils.buildReactScriptAttributes(obj)).toEqual({ 
+        src: '/bar',
+        crossOrigin: '',
+        noModule: true,
+        async: true,
+        defer: true,
+    });
+});
+
+test('.buildReactLinkAttributes()', () => {
+    const obj = new AssetCss({
+        value: '/bar',
+        crossorigin: true,
+        disabled: true,
+    });
+    expect(utils.buildReactLinkAttributes(obj)).toEqual({ 
+        href: '/bar',
+        crossOrigin: '',
+        rel: 'stylesheet',
+        disabled: true,
+        type: 'text/css',
+    });
+});
