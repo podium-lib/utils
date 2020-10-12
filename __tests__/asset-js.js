@@ -326,3 +326,8 @@ test('Js() - set "src" - should throw', () => {
         obj.src = '/bar';
     }).toThrowError('Cannot set read-only property.');
 });
+
+test('Js() - .toReactAttrs()', () => {
+    const obj = new Js({ value: '/foo' });
+    expect(obj.toReactAttrs()).toEqual({ src: '/foo' });
+});

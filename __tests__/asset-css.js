@@ -342,3 +342,12 @@ test('Css() - set "href" - should throw', () => {
         obj.href = '/bar';
     }).toThrowError('Cannot set read-only property.');
 });
+
+test('Css() - .toReactAttrs()', () => {
+    const obj = new Css({ value: '/foo' });
+    expect(obj.toReactAttrs()).toEqual({
+        href: '/foo',
+        rel: 'stylesheet',
+        type: 'text/css',
+    });
+});
