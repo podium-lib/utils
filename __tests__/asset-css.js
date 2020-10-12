@@ -345,7 +345,7 @@ test('Css() - set "href" - should throw', () => {
 
 test('Css() - .toReactAttrs()', () => {
     const obj = new Css({ value: '/foo' });
-    expect(obj.toReactAttrs()).toEqual({
+    expect(obj.toJsxAttributes()).toEqual({
         href: '/foo',
         rel: 'stylesheet',
         type: 'text/css',

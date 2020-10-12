@@ -329,5 +329,5 @@ test('Js() - set "src" - should throw', () => {
 
 test('Js() - .toReactAttrs()', () => {
     const obj = new Js({ value: '/foo' });
-    expect(obj.toReactAttrs()).toEqual({ src: '/foo' });
+    expect(obj.toJsxAttributes()).toEqual({ src: '/foo' });
 });
