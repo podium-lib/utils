@@ -266,6 +266,21 @@ test('.uriIsRelative() - "uri" is absolute - should return "false"', () => {
 });
 
 /**
+ * .uriIsSchemaLess()
+ */
+
+test('.uriIsSchemaLess() - "uri" is schema less - should return "true"', () => {
+    expect(utils.uriIsSchemaLess('//localhost:700/manifest.json')).toBe(true);
+});
+
+test('.uriIsSchemaLess() - "uri" is not schema less - should return "false"', () => {
+    expect(utils.uriIsSchemaLess('http://localhost:7000/manifest.json')).toBe(
+        false,
+    );
+});
+
+
+/**
  * .uriRelativeToAbsolute()
  */
 
