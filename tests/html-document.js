@@ -1,8 +1,7 @@
-'use strict';
+import tap from 'tap';
+import HttpIncoming from '../lib/http-incoming.js';
+import { document } from '../lib/html-document.js';
 
-const tap = require('tap');
-const HttpIncoming = require('../lib/http-incoming');
-const document = require('../lib/html-document');
 
 const SIMPLE_REQ = {
     headers: {},

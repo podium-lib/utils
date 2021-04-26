@@ -1,7 +1,5 @@
-'use strict';
-
-const tap = require('tap');
-const utils = require('../lib/utils');
+import tap from 'tap';
+import * as utils from '../lib/utils.js'
 
 /**
  * .isString()
@@ -9,55 +7,55 @@ const utils = require('../lib/utils');
 
 tap.test('.isString() - no arguments given - should return false', (t) => {
     const result = utils.isString();
-    t.false(result);
+    t.notOk(result);
     t.end();
 });  
 
 tap.test('.isString() - arguments is an object - should return false', (t) => {
     const result = utils.isString({});
-    t.false(result);
+    t.notOk(result);
     t.end();
 });  
 
 tap.test('.isString() - arguments is an string - should return true', (t) => {
     const result = utils.isString('function');
-    t.true(result);
+    t.ok(result);
     t.end();
 });  
 
 tap.test('.isString() - arguments is an array - should return false', (t) => {
     const result = utils.isString([]);
-    t.false(result);
+    t.notOk(result);
     t.end();
 });  
 
 tap.test('.isString() - arguments is an boolean - should return false', (t) => {
     const result = utils.isString(true);
-    t.false(result);
+    t.notOk(result);
     t.end();
 }); 
 
 tap.test('.isString() - arguments is an number - should return false', (t) => {
     const result = utils.isString(42);
-    t.false(result);
+    t.notOk(result);
     t.end();
 }); 
 
 tap.test('.isString() - arguments is an function - should return false', (t) => {
     const result = utils.isString(() => {});
-    t.false(result);
+    t.notOk(result);
     t.end();
 }); 
 
 tap.test('.isString() - arguments is an arrow function - should return false', (t) => {
     const result = utils.isString(() => {});
-    t.false(result);
+    t.notOk(result);
     t.end();
 }); 
 
 tap.test('.isString() - arguments is an async function - should return false', (t) => {
     const result = utils.isString(async () => {});
-    t.false(result);
+    t.notOk(result);
     t.end();
 }); 
 
@@ -67,55 +65,55 @@ tap.test('.isString() - arguments is an async function - should return false', (
 
 tap.test('.isFunction() - no arguments given - should return false', (t) => {
     const result = utils.isFunction();
-    t.false(result);
+    t.notOk(result);
     t.end();
 }); 
 
 tap.test('.isFunction() - arguments is an object - should return false', (t) => {
     const result = utils.isFunction({});
-    t.false(result);
+    t.notOk(result);
     t.end();
 }); 
 
 tap.test('.isFunction() - arguments is an string - should return false', (t) => {
     const result = utils.isFunction('function');
-    t.false(result);
+    t.notOk(result);
     t.end();
 }); 
 
 tap.test('.isFunction() - arguments is an array - should return false', (t) => {
     const result = utils.isFunction([]);
-    t.false(result);
+    t.notOk(result);
     t.end();
 }); 
 
 tap.test('.isFunction() - arguments is an boolean - should return false', (t) => {
     const result = utils.isFunction(true);
-    t.false(result);
+    t.notOk(result);
     t.end();
 }); 
 
 tap.test('.isFunction() - arguments is an number - should return false', (t) => {
     const result = utils.isFunction(42);
-    t.false(result);
+    t.notOk(result);
     t.end();
 }); 
 
 tap.test('.isFunction() - arguments is an function - should return true', (t) => {
     const result = utils.isFunction(() => {});
-    t.true(result);
+    t.ok(result);
     t.end();
 }); 
 
 tap.test('.isFunction() - arguments is an arrow function - should return true', (t) => {
     const result = utils.isFunction(() => {});
-    t.true(result);
+    t.ok(result);
     t.end();
 }); 
 
 tap.test('.isFunction() - arguments is an async function - should return true', (t) => {
     const result = utils.isFunction(async () => {});
-    t.true(result);
+    t.ok(result);
     t.end();
 }); 
 
@@ -302,12 +300,12 @@ tap.test('.uriBuilder() - "extra" is provided - should append "extra"', (t) => {
  */
 
 tap.test('.uriIsRelative() - "uri" is relative - should return "true"', (t) => {
-    t.true(utils.uriIsRelative('/manifest.json'));
+    t.ok(utils.uriIsRelative('/manifest.json'));
     t.end();
 }); 
 
 tap.test('.uriIsRelative() - "uri" is absolute - should return "false"', (t) => {
-    t.false(utils.uriIsRelative('http://localhost:7000/manifest.json'));
+    t.notOk(utils.uriIsRelative('http://localhost:7000/manifest.json'));
     t.end();
 }); 
 

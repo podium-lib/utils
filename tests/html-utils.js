@@ -1,9 +1,8 @@
-'use strict';
+import tap from 'tap';
+import AssetCss from '../lib/asset-css.js';
+import AssetJs from '../lib/asset-js.js'
+import * as utils from '../lib/html-utils.js'
 
-const tap = require('tap');
-const AssetCss = require('../lib/asset-css');
-const AssetJs = require('../lib/asset-js');
-const utils = require('../lib/html-utils');
 
 /**
  * .buildLinkElement()
@@ -415,14 +414,15 @@ tap.test('.buildScriptElement() - crossorigin boolean false', (t) => {
     t.end();
 });
 
-test('.buildScriptAttributes() - basic', () => {
+tap.test('.buildScriptAttributes() - basic', (t) => {
     const obj = new AssetJs({ value: '/bar' });
-    expect(utils.buildScriptAttributes(obj)).toEqual([ 
+    t.same(utils.buildScriptAttributes(obj), [
         { key: 'src', value: '/bar' }
     ]);
+    t.end();
 });
 
-test('.buildScriptAttributes() - advanced', () => {
+tap.test('.buildScriptAttributes() - advanced', (t) => {
     const obj = new AssetJs({
         value: '/bar',
         crossorigin: true,
@@ -431,7 +431,7 @@ test('.buildScriptAttributes() - advanced', () => {
         defer: true,
         type: 'module',
     });
-    expect(utils.buildScriptAttributes(obj)).toEqual([ 
+    t.same(utils.buildScriptAttributes(obj), [ 
         { key: 'src', value: '/bar' },
         { key: 'type', value: 'module' },
         { key: 'crossorigin' },
@@ -439,18 +439,21 @@ test('.buildScriptAttributes() - advanced', () => {
         { key: 'async' },
         { key: 'defer' },
     ]);
+    t.end();
 });
 
-test('.buildLinkAttributes() - basic', () => {
+tap.test('.buildLinkAttributes() - basic', (t) => {
     const obj = new AssetCss({ value: '/bar' });
-    expect(utils.buildLinkAttributes(obj)).toEqual([ 
+    t.same(utils.buildLinkAttributes(obj), [ 
         { key: 'href', value: '/bar' },
         { key: 'type', value: 'text/css' },
         { key: 'rel', value: 'stylesheet' },
     ]);
+    t.end();
 });
 
-test('.buildLinkAttributes() - advanced', () => {
+
+tap.test('.buildLinkAttributes() - advanced', (t) => {
     const obj = new AssetCss({
         value: '/bar',
         disabled: true,
@@ -461,9 +464,9 @@ test('.buildLinkAttributes() - advanced', () => {
         type: 'test5',
         rel: 'test6',
     });
-    expect(utils.buildLinkAttributes(obj)).toEqual([
+    t.same(utils.buildLinkAttributes(obj), [
         { key: 'href', value: '/bar' },
-        { key: 'disabled', value: undefined },
+        { key: 'disabled' },
         { key: 'hreflang', value: 'test1' },
         { key: 'title', value: 'test2' },
         { key: 'media', value: 'test3' },
@@ -471,9 +474,10 @@ test('.buildLinkAttributes() - advanced', () => {
         { key: 'type', value: 'test5' },
         { key: 'rel', value: 'test6' },
     ]);
+    t.end();
 });
 
-test('.buildReactScriptAttributes()', () => {
+tap.test('.buildReactScriptAttributes()', (t) => {
     const obj = new AssetJs({
         value: '/bar',
         crossorigin: true,
@@ -481,26 +485,28 @@ test('.buildReactScriptAttributes()', () => {
         defer: true,
         nomodule: true,
     });
-    expect(utils.buildReactScriptAttributes(obj)).toEqual({ 
+    t.same(utils.buildReactScriptAttributes(obj), { 
         src: '/bar',
         crossOrigin: '',
         noModule: true,
         async: true,
         defer: true,
     });
+    t.end();
 });
 
-test('.buildReactLinkAttributes()', () => {
+tap.test('.buildReactLinkAttributes()', (t) => {
     const obj = new AssetCss({
         value: '/bar',
         crossorigin: true,
         disabled: true,
     });
-    expect(utils.buildReactLinkAttributes(obj)).toEqual({ 
+    t.same(utils.buildReactLinkAttributes(obj), { 
         href: '/bar',
         crossOrigin: '',
         rel: 'stylesheet',
         disabled: true,
         type: 'text/css',
     });
+    t.end();
 });

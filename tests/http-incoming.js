@@ -1,7 +1,5 @@
-'use strict';
-
-const tap = require('tap');
-const HttpIncoming = require('../lib/http-incoming');
+import tap from 'tap';
+import HttpIncoming from '../lib/http-incoming.js';
 
 const SIMPLE_REQ = {};
 
@@ -33,9 +31,9 @@ tap.test('PodiumHttpIncoming() - no arguments given - should construct object wi
     t.same(incoming.response, {});
     t.same(incoming.url, {});
     t.same(incoming.params, {});
-    t.false(incoming.proxy);
+    t.notOk(incoming.proxy);
     t.same(incoming.context, {});
-    t.false(incoming.development);
+    t.notOk(incoming.development);
     t.equal(incoming.name, '');
     t.same(incoming.css, []);
     t.same(incoming.js, []);
@@ -158,7 +156,7 @@ tap.test('PodiumHttpIncoming.url - set value - should set value', (t) => {
 tap.test('PodiumHttpIncoming.development - set value - should set value', (t) => {
     const incoming = new HttpIncoming(ADVANCED_REQ, SIMPLE_RES);
     incoming.development = true;
-    t.true(incoming.development);
+    t.ok(incoming.development);
     t.end();
 });
 
@@ -204,7 +202,7 @@ tap.test('PodiumHttpIncoming.js - set illegal value - should throw', (t) => {
 tap.test('PodiumHttpIncoming.proxy - set value - should set value', (t) => {
     const incoming = new HttpIncoming(ADVANCED_REQ, SIMPLE_RES);
     incoming.proxy = true;
-    t.true(incoming.proxy);
+    t.ok(incoming.proxy);
     t.end();
 });
 
@@ -284,8 +282,8 @@ tap.test('PodiumHttpIncoming.toJSON() - call method - should return object witho
     t.same(result.params, {});
     t.same(result.context, {});
     t.same(result.view, {});
-    t.false(result.proxy);
-    t.false(result.development);
+    t.notOk(result.proxy);
+    t.notOk(result.development);
     t.equal(result.name, '');
     t.same(result.css, []);
     t.same(result.js, []);
