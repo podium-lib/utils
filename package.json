@@ -29,7 +29,7 @@
     ],
     "main": "./dist/main.js",
     "exports": {
-        "require": "./dist/validate.js",
+        "require": "./dist/main.js",
         "import": "./lib/main.js"
     },
     "types": "index.d.ts",
