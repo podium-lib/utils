@@ -1,7 +1,8 @@
 {
     "name": "@podium/utils",
-    "version": "4.4.16",
+    "version": "5.0.0-next.4",
     "description": "Common generic utility methods shared by @podium modules.",
+    "type": "module",
     "license": "MIT",
     "keywords": [
         "micro services",
@@ -23,31 +24,23 @@
         "index.d.ts",
         "README.md",
         "LICENSE",
+        "dist",
         "lib"
     ],
-    "main": "./lib/main.js",
+    "main": "./dist/main.js",
+    "exports": {
+        "require": "./dist/validate.js",
+        "import": "./lib/main.js"
+    },
     "types": "index.d.ts",
     "scripts": {
         "lint": "eslint .",
         "lint:fix": "eslint --fix .",
-        "test": "jest",
-        "test:verbose": "jest --verbose",
-        "test:coverage": "jest --coverage",
-        "bench": "node benchmark/benchmark.js"
-    },
-    "jest": {
-        "coveragePathIgnorePatterns": [
-            "test/"
-        ],
-        "coverageThreshold": {
-            "global": {
-                "branches": 100,
-                "functions": 100,
-                "lines": 100,
-                "statements": 100
-            }
-        },
-        "testEnvironment": "node"
+        "test": "tap --no-check-coverage",
+        "test:snapshots:update": "tap --snapshot",
+        "bench": "node benchmark/benchmark.js",
+        "prepare": "npm run -s build",
+        "build": "rollup -c"
     },
     "devDependencies": {
         "@semantic-release/changelog": "5.0.1",
@@ -63,12 +56,14 @@
         "eslint-config-prettier": "8.3.0",
         "eslint-plugin-import": "2.22.1",
         "eslint-plugin-prettier": "3.4.0",
-        "jest": "26.6.3",
+        "rollup": "2.45.2",
+        "babel-eslint": "10.1.0",
+        "tap": "15.0.5",
         "prettier": "2.2.1"
     },
     "dependencies": {
-        "@podium/schemas": "4.1.15",
-        "original-url": "1.2.3",
-        "camelcase": "6.2.0"
+        "@podium/schemas": "5.0.0-next.4",
+        "camelcase": "6.2.0",
+        "original-url": "1.2.3"
     }
 }
