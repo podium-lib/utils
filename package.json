@@ -59,10 +59,10 @@
         "rollup": "2.45.2",
         "babel-eslint": "10.1.0",
         "tap": "15.0.5",
-        "prettier": "2.2.1"
+        "prettier": "2.2.1",
+        "@podium/schemas": "5.0.0-next.4"
     },
     "dependencies": {
-        "@podium/schemas": "5.0.0-next.4",
         "camelcase": "6.2.0",
         "original-url": "1.2.3"
     }
