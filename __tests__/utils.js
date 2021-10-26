@@ -164,6 +164,11 @@ test('.pathnameBuilder() - one argument is an Array of Strings - should start pa
     expect(result).toBe('/a/b/c/d/e/f');
 });
 
+test('.pathnameBuilder() - one argument is an Array of String paths - should start pathname with "/", separate each entry with single "/" and end with no "/"', () => {
+    const result = utils.pathnameBuilder('/a/b/', ['/c/d'], 'e/f/');
+    expect(result).toBe('/a/b/c/d/e/f');
+});
+
 test('.pathnameBuilder() - one argument is "undefined" - should start pathname with "/", separate each entry with single "/" and end with no "/"', () => {
     const result = utils.pathnameBuilder('/a/b/', undefined, '/c/d/');
     expect(result).toBe('/a/b/c/d');
@@ -182,6 +187,21 @@ test('.pathnameBuilder() - emtpy arguments at the beginning, first String starts
 test('.pathnameBuilder() - emtpy arguments at the beginning, first String starts without "/" - should ignore empty arguments start pathname without "/", separate each entry with single "/" and end with no "/"', () => {
     const result = utils.pathnameBuilder('', '', 'a/b/', '');
     expect(result).toBe('a/b');
+});
+
+test('.pathnameBuilder() - path is a http origin - should start pathname with "/", separate each entry with single "/" and end with no "/"', () => {
+    const result = utils.pathnameBuilder('http://foo.com/b/', '/c/d/', '/e/f/');
+    expect(result).toBe('/c/d/e/f');
+});
+
+test('.pathnameBuilder() - path is a https origin - should start pathname with "/", separate each entry with single "/" and end with no "/"', () => {
+    const result = utils.pathnameBuilder('http://foo.com/b/', '/c/d/', '/e/f/');
+    expect(result).toBe('/c/d/e/f');
+});
+
+test('.pathnameBuilder() - path is an array with a origin - should start pathname with "/", separate each entry with single "/" and end with no "/"', () => {
+    const result = utils.pathnameBuilder(['http://foo.com/b/'], '/c/d/', '/e/f/');
+    expect(result).toBe('/c/d/e/f');
 });
 
 /**
