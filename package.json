@@ -67,7 +67,7 @@
         "semantic-release": "18.0.0"
     },
     "dependencies": {
-        "@podium/schemas": "4.1.25",
+        "@podium/schemas": "4.1.26",
         "camelcase": "6.2.0",
         "original-url": "1.2.3"
     }
