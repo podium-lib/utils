@@ -27,20 +27,14 @@
         "dist",
         "lib"
     ],
-    "main": "./dist/main.js",
-    "exports": {
-        "require": "./dist/main.js",
-        "import": "./lib/main.js"
-    },
+    "main": "./lib/main.js",
     "types": "index.d.ts",
     "scripts": {
         "lint": "eslint .",
         "lint:fix": "eslint --fix .",
         "test": "tap --no-check-coverage",
         "test:snapshots:update": "tap --snapshot",
-        "bench": "node benchmark/benchmark.js",
-        "prepare": "npm run -s build",
-        "build": "rollup -c"
+        "bench": "node benchmark/benchmark.js"
     },
     "devDependencies": {
         "@semantic-release/changelog": "6.0.1",
@@ -55,7 +49,6 @@
         "eslint-config-prettier": "8.5.0",
         "eslint-plugin-import": "2.26.0",
         "eslint-plugin-prettier": "4.0.0",
-        "rollup": "2.71.1",
         "@babel/eslint-parser": "7.17.0",
         "tap": "16.1.0",
         "prettier": "2.6.2",
