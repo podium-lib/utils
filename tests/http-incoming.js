@@ -57,56 +57,6 @@ tap.test('PodiumHttpIncoming() - "request" argument given - should set parsed UR
     t.end();
 });
 
-tap.test('PodiumHttpIncoming() - has forwarded - should set ignore hostname and use host', (t) => {
-    const incoming = new HttpIncoming({
-        headers: {
-            host: 'localhost:3030',
-            forwarded: 'host=example.com; proto=https',
-        },
-        hostname: 'localhost',
-        url: '/some/path',
-    });
-    t.equal(incoming.url.hostname, 'localhost');
-    t.equal(incoming.url.host, 'localhost:3030');
-    t.equal(incoming.url.port, '3030');
-    t.equal(incoming.url.protocol, 'https:');
-    t.equal(incoming.url.pathname, '/some/path');
-    t.end();
-});
-
-tap.test('PodiumHttpIncoming() - forwarded https request - should set ".url.protocol" to https', (t) => {
-    const incoming = new HttpIncoming({
-        headers: {
-            host: 'localhost:3030',
-            'x-forwarded-proto': 'https',
-        },
-        hostname: 'localhost',
-        url: '/some/path',
-    });
-    t.equal(incoming.url.hostname, 'localhost');
-    t.equal(incoming.url.host, 'localhost:3030');
-    t.equal(incoming.url.port, '3030');
-    t.equal(incoming.url.protocol, 'https:');
-    t.equal(incoming.url.pathname, '/some/path');
-    t.end();
-});
-
-tap.test('PodiumHttpIncoming() - request has ".originalUrl" instead of ".url" - should set value of ".originalUrl" as ".url.pathname"', (t) => {
-    const incoming = new HttpIncoming({
-        headers: {
-            host: 'localhost:3030',
-        },
-        hostname: 'localhost',
-        originalUrl: '/some/path',
-    });
-    t.equal(incoming.url.hostname, 'localhost');
-    t.equal(incoming.url.host, 'localhost:3030');
-    t.equal(incoming.url.port, '3030');
-    t.equal(incoming.url.protocol, 'http:');
-    t.equal(incoming.url.pathname, '/some/path');
-    t.end();
-});
-
 tap.test('PodiumHttpIncoming() - "response" argument given - should store request on ".response"', (t) => {
     const incoming = new HttpIncoming(ADVANCED_REQ, SIMPLE_RES);
     t.same(incoming.response, SIMPLE_RES);
@@ -148,8 +98,8 @@ tap.test('PodiumHttpIncoming.params - set value', (t) => {
 
 tap.test('PodiumHttpIncoming.url - set value - should set value', (t) => {
     const incoming = new HttpIncoming(ADVANCED_REQ, SIMPLE_RES);
-    incoming.url = 'foo';
-    t.equal(incoming.url, 'foo');
+    incoming.url = 'http://localhost:8080/foo';
+    t.equal(incoming.url.href, 'http://localhost:8080/foo');
     t.end();
 });
 

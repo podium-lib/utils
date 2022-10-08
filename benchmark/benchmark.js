@@ -2,8 +2,8 @@
 
 /* eslint no-unused-vars: "off", import/no-extraneous-dependencies: "off", no-console: "off" */
 
-const benchmark = require('benchmark');
-const HttpIncoming = require('../lib/http-incoming');
+import benchmark from 'benchmark';
+import HttpIncoming from '../lib/http-incoming.js';
 
 const suite = new benchmark.Suite();
 
@@ -19,6 +19,7 @@ const REQ = {
     headers: {
         host: 'localhost:3030',
     },
+    protocol: 'http:',
     hostname: 'localhost',
     url: '/some/path',
 };
@@ -33,10 +34,12 @@ const PARAMS = {
 
 add('new HttpIncoming() - No params', () => {
     const incoming = new HttpIncoming(REQ, RES);
+    const {url} = incoming;
 });
 
 add('new HttpIncoming() - With params', () => {
     const incoming = new HttpIncoming(REQ, RES, PARAMS);
+    const {url} = incoming;
 });
 
 suite
