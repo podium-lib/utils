@@ -6,25 +6,14 @@ declare interface PodiumAsset {
     toHTML(): string;
 }
 
-export interface AssetCss extends PodiumAsset {
-    as?: Pick<HTMLLinkElement, 'as'>;
-    crossorigin?: Pick<HTMLLinkElement, 'crossOrigin'>;
-    disabled?: Pick<HTMLLinkElement, 'disabled'>;
-    hreflang?: Pick<HTMLLinkElement, 'hreflang'>;
-    title?: Pick<HTMLLinkElement, 'title'>;
-    media?: Pick<HTMLLinkElement, 'media'>;
-    rel?: Pick<HTMLLinkElement, 'rel'>;
-    type?: Pick<HTMLLinkElement, 'type'>;
+export interface AssetCss extends PodiumAsset, Pick<HTMLLinkElement, 'as' | 'disabled' | 'hreflang' | 'title' | 'media' | 'rel' | 'type'> {
+    crossorigin?: HTMLLinkElement['crossOrigin'];
 }
 
-export interface AssetJs extends PodiumAsset {
-    referrerpolicy?: Pick<HTMLScriptElement, 'referrerPolicy'>;
-    crossorigin?: Pick<HTMLScriptElement, 'crossOrigin'>;
-    integrity?: Pick<HTMLScriptElement, 'integrity'>;
-    nomodule?: Pick<HTMLScriptElement, 'noModule'>;
-    async?: Pick<HTMLScriptElement, 'async'>;
-    defer?: Pick<HTMLScriptElement, 'defer'>;
-    type?: Pick<HTMLScriptElement, 'type'>;
+export interface AssetJs extends PodiumAsset, Pick<HTMLScriptElement, 'integrity' | 'async' | 'defer' | 'type'> {
+    referrerpolicy?: HTMLScriptElement['referrerPolicy'];
+    crossorigin?: HTMLScriptElement['crossOrigin'];
+    nomodule?: HTMLScriptElement['noModule'];
     data?: DOMStringMap;
 }
 
