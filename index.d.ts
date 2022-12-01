@@ -6,27 +6,13 @@ declare interface PodiumAsset {
     toHTML(): string;
 }
 
-export interface AssetCss extends PodiumAsset {
-    as?: Pick<HTMLLinkElement, 'as'>;
-    crossorigin?: Pick<HTMLLinkElement, 'crossOrigin'>;
-    disabled?: Pick<HTMLLinkElement, 'disabled'>;
-    hreflang?: Pick<HTMLLinkElement, 'hreflang'>;
-    title?: Pick<HTMLLinkElement, 'title'>;
-    media?: Pick<HTMLLinkElement, 'media'>;
-    rel?: Pick<HTMLLinkElement, 'rel'>;
-    type?: Pick<HTMLLinkElement, 'type'>;
-}
+export type AssetCss = Pick<HTMLLinkElement, 'as' | 'crossOrigin' | 'disabled' | 'hreflang' | 'title' | 'media' | 'rel' | 'type'> &
+    PodiumAsset;
 
-export interface AssetJs extends PodiumAsset {
-    referrerpolicy?: Pick<HTMLScriptElement, 'referrerPolicy'>;
-    crossorigin?: Pick<HTMLScriptElement, 'crossOrigin'>;
-    integrity?: Pick<HTMLScriptElement, 'integrity'>;
-    nomodule?: Pick<HTMLScriptElement, 'noModule'>;
-    async?: Pick<HTMLScriptElement, 'async'>;
-    defer?: Pick<HTMLScriptElement, 'defer'>;
-    type?: Pick<HTMLScriptElement, 'type'>;
+export type AssetJs = Pick<HTMLScriptElement, 'referrerPolicy' | 'crossOrigin' | 'integrity' | 'noModule' | 'async' | 'defer' | 'type'> &
+    PodiumAsset & {
     data?: DOMStringMap;
-}
+};
 
 export class HttpIncoming<T = { [key: string]: unknown }> {
     constructor(request: IncomingMessage, response: ServerResponse, params: T);
