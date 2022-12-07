@@ -1,3 +1,10 @@
+## [4.4.38](https://github.com/podium-lib/utils/compare/v4.4.37...v4.4.38) (2022-12-07)
+
+
+### Bug Fixes
+
+* correct typescript definitions for assets ([6b39222](https://github.com/podium-lib/utils/commit/6b392229f4a2ad254080c617990cb7faa457ac33))
+
 ## [4.4.37](https://github.com/podium-lib/utils/compare/v4.4.36...v4.4.37) (2022-11-14)
 
 
