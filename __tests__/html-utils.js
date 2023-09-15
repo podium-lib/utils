@@ -1,7 +1,6 @@
 'use strict';
 
-const AssetCss = require('../lib/asset-css');
-const AssetJs = require('../lib/asset-js');
+const { AssetCss, AssetJs } = require('..');
 const utils = require('../lib/html-utils');
 
 /**
@@ -277,10 +276,12 @@ test('.buildScriptElement() - "async" property is "true" - should appended "asyn
 test('.buildScriptElement() - "data" property has a value - should appended "data" attribute to element', () => {
     const obj = new AssetJs({
         value: '/foo',
-        data: [{ 
-            key: 'foo',
-            value: 'bar'     
-        }],
+        data: [
+            {
+                key: 'foo',
+                value: 'bar',
+            },
+        ],
     });
     const result = utils.buildScriptElement(obj);
     expect(result).toEqual('<script src="/foo" data-foo="bar"></script>');
@@ -383,8 +384,8 @@ test('.buildScriptElement() - crossorigin boolean false', () => {
 
 test('.buildScriptAttributes() - basic', () => {
     const obj = new AssetJs({ value: '/bar' });
-    expect(utils.buildScriptAttributes(obj)).toEqual([ 
-        { key: 'src', value: '/bar' }
+    expect(utils.buildScriptAttributes(obj)).toEqual([
+        { key: 'src', value: '/bar' },
     ]);
 });
 
@@ -397,7 +398,7 @@ test('.buildScriptAttributes() - advanced', () => {
         defer: true,
         type: 'module',
     });
-    expect(utils.buildScriptAttributes(obj)).toEqual([ 
+    expect(utils.buildScriptAttributes(obj)).toEqual([
         { key: 'src', value: '/bar' },
         { key: 'type', value: 'module' },
         { key: 'crossorigin' },
@@ -409,7 +410,7 @@ test('.buildScriptAttributes() - advanced', () => {
 
 test('.buildLinkAttributes() - basic', () => {
     const obj = new AssetCss({ value: '/bar' });
-    expect(utils.buildLinkAttributes(obj)).toEqual([ 
+    expect(utils.buildLinkAttributes(obj)).toEqual([
         { key: 'href', value: '/bar' },
         { key: 'type', value: 'text/css' },
         { key: 'rel', value: 'stylesheet' },
@@ -447,7 +448,7 @@ test('.buildReactScriptAttributes()', () => {
         defer: true,
         nomodule: true,
     });
-    expect(utils.buildReactScriptAttributes(obj)).toEqual({ 
+    expect(utils.buildReactScriptAttributes(obj)).toEqual({
         src: '/bar',
         crossOrigin: '',
         noModule: true,
@@ -462,7 +463,7 @@ test('.buildReactLinkAttributes()', () => {
         crossorigin: true,
         disabled: true,
     });
-    expect(utils.buildReactLinkAttributes(obj)).toEqual({ 
+    expect(utils.buildReactLinkAttributes(obj)).toEqual({
         href: '/bar',
         crossOrigin: '',
         rel: 'stylesheet',
