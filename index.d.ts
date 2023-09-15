@@ -15,7 +15,7 @@ export type AssetJs = Pick<HTMLScriptElement, 'referrerPolicy' | 'crossOrigin' |
 };
 
 export class HttpIncoming<T = { [key: string]: unknown }> {
-    constructor(request: IncomingMessage, response: ServerResponse, params: T);
+    constructor(request: IncomingMessage, response: ServerResponse, params?: T);
 
     development: boolean;
 
