@@ -6,16 +6,72 @@ declare interface PodiumAsset {
     toHTML(): string;
 }
 
-export type AssetCss = Pick<HTMLLinkElement, 'as' | 'crossOrigin' | 'disabled' | 'hreflang' | 'title' | 'media' | 'rel' | 'type'> &
-    PodiumAsset;
+export class AssetCss
+    implements
+        Pick<
+            HTMLLinkElement,
+            'as' | 'disabled' | 'hreflang' | 'title' | 'media' | 'rel' | 'type'
+        >,
+        PodiumAsset
+{
+    constructor(options?: {
+        as?: string | false | null;
+        crossorigin?: string | null | boolean;
+        disabled?: boolean | '' | null;
+        hreflang?: string | false | null;
+        title?: string | false | null;
+        media?: string | false | null;
+        rel?: string | false | null;
+        type?: string | false | null;
+        value: string | false | null;
+        data?: Array<{ key: string; value: string }>;
+    });
 
-export type AssetJs = Pick<HTMLScriptElement, 'referrerPolicy' | 'crossOrigin' | 'integrity' | 'noModule' | 'async' | 'defer' | 'type'> &
-    PodiumAsset & {
-    data?: DOMStringMap;
-};
+    as: string;
+    crossorigin: string | null;
+    disabled: boolean;
+    hreflang: string;
+    title: string;
+    media: string;
+    rel: string;
+    type: string;
+    readonly value: string;
+    data?: Array<{ key: string; value: string }>;
+    toHTML(): string;
+}
+
+export class AssetJs
+    implements
+        Pick<HTMLScriptElement, 'integrity' | 'async' | 'defer' | 'type'>,
+        PodiumAsset
+{
+    constructor(options?: {
+        crossorigin?: string | null | boolean;
+        type?: string | null | false;
+        integrity?: string | null | false;
+        referrerpolicy?: string | null | false;
+        nomodule?: boolean | null | '';
+        async?: boolean | null | '';
+        defer?: boolean | null | '';
+        value: string | null;
+        data?: Array<{ key: string; value: string }>;
+    });
+
+    crossorigin: string | null;
+    type: string;
+    integrity: string;
+    referrerpolicy: string;
+    nomodule: boolean;
+    async: boolean;
+    defer: boolean;
+    prefix?: boolean;
+    readonly value: string;
+    data?: Array<{ key: string; value: string }>;
+    toHTML(): string;
+}
 
 export class HttpIncoming<T = { [key: string]: unknown }> {
-    constructor(request: IncomingMessage, response: ServerResponse, params: T);
+    constructor(request: IncomingMessage, response: ServerResponse, params?: T);
 
     development: boolean;
 
