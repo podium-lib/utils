@@ -1,3 +1,11 @@
+## [4.4.40](https://github.com/podium-lib/utils/compare/v4.4.39...v4.4.40) (2023-10-09)
+
+
+### Bug Fixes
+
+* make AssetCss and AssetJs constructable for TS ([f3f7fee](https://github.com/podium-lib/utils/commit/f3f7fee09a5f2310e087f7e022319d39a51d520f))
+* mark params as optional ([51d84da](https://github.com/podium-lib/utils/commit/51d84dae08c30fe80d11d33adf4c740c572dd476))
+
 ## [4.4.39](https://github.com/podium-lib/utils/compare/v4.4.38...v4.4.39) (2023-01-04)
 
 
