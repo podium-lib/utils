@@ -1,3 +1,10 @@
+## [4.4.41](https://github.com/podium-lib/utils/compare/v4.4.40...v4.4.41) (2023-10-19)
+
+
+### Bug Fixes
+
+* add missing functions to type definition ([b260c4f](https://github.com/podium-lib/utils/commit/b260c4f34ffb4b298e55144f7db2333ad2fe3bf5))
+
 ## [4.4.40](https://github.com/podium-lib/utils/compare/v4.4.39...v4.4.40) (2023-10-09)
 
 

@@ -1,6 +1,6 @@
 {
     "name": "@podium/utils",
-    "version": "4.4.40",
+    "version": "4.4.41",
     "description": "Common generic utility methods shared by @podium modules.",
     "license": "MIT",
     "keywords": [
