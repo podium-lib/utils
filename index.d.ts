@@ -38,6 +38,8 @@ export class AssetCss
     readonly value: string;
     data?: Array<{ key: string; value: string }>;
     toHTML(): string;
+    toJSON(): Record<string, any>;
+    toJsxAttributes(): Record<string, any>;
 }
 
 export class AssetJs
@@ -68,6 +70,8 @@ export class AssetJs
     readonly value: string;
     data?: Array<{ key: string; value: string }>;
     toHTML(): string;
+    toJSON(): Record<string, any>;
+    toJsxAttributes(): Record<string, any>;
 }
 
 export class HttpIncoming<T = { [key: string]: unknown }> {
