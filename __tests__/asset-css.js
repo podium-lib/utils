@@ -351,3 +351,33 @@ test('Css() - .toReactAttrs()', () => {
         type: 'text/css',
     });
 });
+
+test('Css() - strategy is given - should set "lazy" strategy', () => {
+  const obj = new Css({ value: '/foo', strategy: "lazy" });
+  expect(obj.strategy).toEqual("lazy");
+});
+
+test('Css() - strategy is given - should set "beforeInteractive" strategy', () => {
+  const obj = new Css({ value: '/foo', strategy: "beforeInteractive" });
+  expect(obj.strategy).toEqual("beforeInteractive");
+});
+
+test('Css() - strategy is given - should set "afterInteractive" strategy', () => {
+  const obj = new Css({ value: '/foo', strategy: "afterInteractive" });
+  expect(obj.strategy).toEqual("afterInteractive");
+});
+
+test('Css() - scope is given - should set "all" scope', () => {
+  const obj = new Css({ value: '/foo', scope: "all" });
+  expect(obj.scope).toEqual("all");
+});
+
+test('Css() - scope is given - should set "content" scope', () => {
+  const obj = new Css({ value: '/foo', scope: "content" });
+  expect(obj.scope).toEqual("content");
+});
+
+test('Css() - scope is given - should set "fallback" scope', () => {
+  const obj = new Css({ value: '/foo', scope: "fallback" });
+  expect(obj.scope).toEqual("fallback");
+});
