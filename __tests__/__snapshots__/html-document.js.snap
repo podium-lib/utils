@@ -10,13 +10,15 @@ exports[`.document() - arguments given - handles v4 js and css syntax 1`] = `
         <link href=\\"http://somecssurl1.com\\" type=\\"text/css\\">
         <link href=\\"http://somecssurl2.com\\" type=\\"text/css\\">
         <link href=\\"http://somecssurl3.com\\" type=\\"text/css\\">
-        <script src=\\"http://somejsurl1.com\\"></script>
-        <script src=\\"http://somejsurl2.com\\"></script>
-        <script src=\\"http://somejsurl3.com\\"></script>
+        
         <title></title>
         
     </head>
     <body>
+        
+        <script src=\\"http://somejsurl1.com\\"></script>
+        <script src=\\"http://somejsurl2.com\\"></script>
+        <script src=\\"http://somejsurl3.com\\"></script>
         
     </body>
 </html>"
@@ -30,12 +32,14 @@ exports[`.document() - arguments given - should render template using values giv
         <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\">
         <meta http-equiv=\\"X-UA-Compatible\\" content=\\"IE=Edge\\">
         <link href=\\"http://somecssurl.com\\">
-        <script src=\\"http://somejsurl.com\\"></script>
+        
         <title>this goes in the title tag</title>
         this goes in the head section
     </head>
     <body>
         this goes in the body section
+        <script src=\\"http://somejsurl.com\\"></script>
+        
     </body>
 </html>"
 `;
@@ -50,14 +54,36 @@ exports[`.document() - js "type" is "esm" - should set type to module on script 
         <link href=\\"http://somecssurl1.com\\" type=\\"text/css\\">
         <link href=\\"http://somecssurl2.com\\" type=\\"text/css\\">
         <link href=\\"http://somecssurl3.com\\" type=\\"text/css\\">
-        <script src=\\"http://somejsurl1.com\\" type=\\"module\\"></script>
-        <script src=\\"http://somejsurl2.com\\" type=\\"module\\"></script>
-        <script src=\\"http://somejsurl3.com\\" type=\\"module\\"></script>
+        
         <title></title>
         
     </head>
     <body>
         
+        <script src=\\"http://somejsurl1.com\\" type=\\"module\\"></script>
+        <script src=\\"http://somejsurl2.com\\" type=\\"module\\"></script>
+        <script src=\\"http://somejsurl3.com\\" type=\\"module\\"></script>
+        
+    </body>
+</html>"
+`;
+
+exports[`.document() - js "type" is "esm" - should set type to module on script tags 2`] = `
+"<!doctype html>
+<html lang=\\"en-US\\">
+    <head>
+        <meta charset=\\"utf-8\\">
+        <meta name=\\"viewport\\" content=\\"width=device-width, initial-scale=1\\">
+        <meta http-equiv=\\"X-UA-Compatible\\" content=\\"IE=Edge\\">
+        <link href=\\"http://somecssurl1.com\\" type=\\"text/css\\">
+        <script src=\\"http://somejsurl2.com/before\\" type=\\"module\\"></script>
+        <title></title>
+        
+    </head>
+    <body>
+        
+        <script src=\\"http://somejsurl3.com/after\\" type=\\"module\\"></script>
+        <script type=\\"module\\">import(\\"http://somejsurl1.com/lazy\\")</script>
     </body>
 </html>"
 `;
@@ -75,6 +101,8 @@ exports[`.document() - no arguments given - should render template 1`] = `
         
     </head>
     <body>
+        
+        
         
     </body>
 </html>"
