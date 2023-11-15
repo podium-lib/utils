@@ -25,6 +25,8 @@ export class AssetCss
         type?: string | false | null;
         value: string | false | null;
         data?: Array<{ key: string; value: string }>;
+        strategy?: "beforeInteractive" | "afterInteractive" | "lazy";
+        scope?: "content" | "fallback" | "all";
     });
 
     as: string;
@@ -37,6 +39,8 @@ export class AssetCss
     type: string;
     readonly value: string;
     data?: Array<{ key: string; value: string }>;
+    strategy?: "beforeInteractive" | "afterInteractive" | "lazy";
+    scope?: "content" | "fallback" | "all";
     toHTML(): string;
     toJSON(): Record<string, any>;
     toJsxAttributes(): Record<string, any>;
@@ -57,6 +61,8 @@ export class AssetJs
         defer?: boolean | null | '';
         value: string | null;
         data?: Array<{ key: string; value: string }>;
+        strategy?: "beforeInteractive" | "afterInteractive" | "lazy";
+        scope?: "content" | "fallback" | "all";
     });
 
     crossorigin: string | null;
@@ -69,6 +75,8 @@ export class AssetJs
     prefix?: boolean;
     readonly value: string;
     data?: Array<{ key: string; value: string }>;
+    strategy?: "beforeInteractive" | "afterInteractive" | "lazy";
+    scope?: "content" | "fallback" | "all";
     toHTML(): string;
     toJSON(): Record<string, any>;
     toJsxAttributes(): Record<string, any>;

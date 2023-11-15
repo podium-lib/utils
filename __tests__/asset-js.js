@@ -331,3 +331,33 @@ test('Js() - .toReactAttrs()', () => {
     const obj = new Js({ value: '/foo' });
     expect(obj.toJsxAttributes()).toEqual({ src: '/foo' });
 });
+
+test('Js() - strategy is given - should set "lazy" strategy', () => {
+  const obj = new Js({ value: '/foo', strategy: "lazy" });
+  expect(obj.strategy).toEqual("lazy");
+});
+
+test('Js() - strategy is given - should set "beforeInteractive" strategy', () => {
+  const obj = new Js({ value: '/foo', strategy: "beforeInteractive" });
+  expect(obj.strategy).toEqual("beforeInteractive");
+});
+
+test('Js() - strategy is given - should set "afterInteractive" strategy', () => {
+  const obj = new Js({ value: '/foo', strategy: "afterInteractive" });
+  expect(obj.strategy).toEqual("afterInteractive");
+});
+
+test('Js() - scope is given - should set "all" scope', () => {
+  const obj = new Js({ value: '/foo', scope: "all" });
+  expect(obj.scope).toEqual("all");
+});
+
+test('Js() - scope is given - should set "content" scope', () => {
+  const obj = new Js({ value: '/foo', scope: "content" });
+  expect(obj.scope).toEqual("content");
+});
+
+test('Js() - scope is given - should set "fallback" scope', () => {
+  const obj = new Js({ value: '/foo', scope: "fallback" });
+  expect(obj.scope).toEqual("fallback");
+});
