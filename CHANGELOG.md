@@ -1,3 +1,11 @@
+# [4.5.0](https://github.com/podium-lib/utils/compare/v4.4.42...v4.5.0) (2023-11-16)
+
+
+### Features
+
+* add strategy and scope fields to AssetCss and AssetJs classes ([5a8ecb1](https://github.com/podium-lib/utils/commit/5a8ecb17ec41f252016b004caef5f207f80ada35))
+* update default document template to use asset strategy ([0688b03](https://github.com/podium-lib/utils/commit/0688b03821989263270d72b3a5833041f24ef46c))
+
 ## [4.4.42](https://github.com/podium-lib/utils/compare/v4.4.41...v4.4.42) (2023-11-16)
 
 
