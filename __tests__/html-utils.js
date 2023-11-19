@@ -382,6 +382,19 @@ test('.buildScriptElement() - crossorigin boolean false', () => {
     expect(result).toEqual(`<script src="/bar"></script>`);
 });
 
+test('.buildScriptElement() - strategy lazy - builds HTML with dynamic import', () => {
+    const obj = new AssetJs({ value: '/foo', type: 'module', strategy: 'lazy' });
+    const result = utils.buildScriptElement(obj);
+    expect(result).toEqual('<script type="module">import "/foo";</script>');
+});
+
+test('.buildScriptElement() - strategy lazy - automatically includes type="module" if not provided', () => {
+    const obj = new AssetJs({ value: '/foo', strategy: 'lazy' });
+    const result = utils.buildScriptElement(obj);
+    expect(result).toEqual('<script type="module">import "/foo";</script>');
+});
+
+
 test('.buildScriptAttributes() - basic', () => {
     const obj = new AssetJs({ value: '/bar' });
     expect(utils.buildScriptAttributes(obj)).toEqual([
