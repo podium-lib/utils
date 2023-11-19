@@ -104,7 +104,7 @@ test('Js() - pathname is given - prefix is true - should append pathname to "src
 
 test('Js() - pathname is given - strategy is lazy - should create HTML with dynamic import', () => {
     const obj = new Js({ value: '/foo', strategy: 'lazy' });
-    expect(obj.toHTML()).toEqual('<script type="module">import "/foo";</script>');
+    expect(obj.toHTML()).toEqual('<script type="module">import("/foo");</script>');
 });
 
 test('Js() - value if absoulte - pathname is given - prefix is true - should NOT append pathname to "value"', () => {
