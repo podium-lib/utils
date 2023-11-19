@@ -1,3 +1,10 @@
+## [4.5.1](https://github.com/podium-lib/utils/compare/v4.5.0...v4.5.1) (2023-11-19)
+
+
+### Bug Fixes
+
+* correctly build lazy load script tag html when asset strategy is lazy ([b1b2646](https://github.com/podium-lib/utils/commit/b1b264678fdd463eec009216a7119af1ea706ba1))
+
 # [4.5.0](https://github.com/podium-lib/utils/compare/v4.4.42...v4.5.0) (2023-11-16)
 
 
