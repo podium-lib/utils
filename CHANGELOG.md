@@ -1,3 +1,23 @@
+# [5.0.0-next.10](https://github.com/podium-lib/utils/compare/v5.0.0-next.9...v5.0.0-next.10) (2023-11-20)
+
+
+### Bug Fixes
+
+* add missing functions to type definition ([b260c4f](https://github.com/podium-lib/utils/commit/b260c4f34ffb4b298e55144f7db2333ad2fe3bf5))
+* correct typescript definitions for assets ([6b39222](https://github.com/podium-lib/utils/commit/6b392229f4a2ad254080c617990cb7faa457ac33))
+* correctly build lazy load script tag html when asset strategy is lazy ([b1b2646](https://github.com/podium-lib/utils/commit/b1b264678fdd463eec009216a7119af1ea706ba1))
+* **deps:** update dependency @podium/schemas to v4.1.33 ([8036aa7](https://github.com/podium-lib/utils/commit/8036aa7923f87cb4cbfadf06fb842bfe01fd10fd))
+* **deps:** update dependency @podium/schemas to v4.1.34 ([a86e661](https://github.com/podium-lib/utils/commit/a86e661567043e8261e2565fd3489dc873b53b09))
+* **deps:** update dependency @podium/schemas to v4.2.0 ([be92192](https://github.com/podium-lib/utils/commit/be92192ad2d0ce20ae4692f05110af87edb71ac7))
+* make AssetCss and AssetJs constructable for TS ([f3f7fee](https://github.com/podium-lib/utils/commit/f3f7fee09a5f2310e087f7e022319d39a51d520f))
+* mark params as optional ([51d84da](https://github.com/podium-lib/utils/commit/51d84dae08c30fe80d11d33adf4c740c572dd476))
+
+
+### Features
+
+* add strategy and scope fields to AssetCss and AssetJs classes ([5a8ecb1](https://github.com/podium-lib/utils/commit/5a8ecb17ec41f252016b004caef5f207f80ada35))
+* update default document template to use asset strategy ([0688b03](https://github.com/podium-lib/utils/commit/0688b03821989263270d72b3a5833041f24ef46c))
+
 ## [4.5.1](https://github.com/podium-lib/utils/compare/v4.5.0...v4.5.1) (2023-11-19)
 
 ### Bug Fixes
