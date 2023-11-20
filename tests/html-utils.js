@@ -423,16 +423,18 @@ tap.test('.buildScriptAttributes() - basic', (t) => {
     t.end();
 });
 
-test('.buildScriptElement() - strategy lazy - builds HTML with dynamic import', (t) => {
-	const obj = new AssetJs({ value: '/foo', type: 'module', strategy: 'lazy' });
-	const result = utils.buildScriptElement(obj);
-	t.equal(result, '<script type="module">import("/foo");</script>');
+tap.test('.buildScriptElement() - strategy lazy - builds HTML with dynamic import', (t) => {
+  const obj = new AssetJs({ value: '/foo', type: 'module', strategy: 'lazy' });
+  const result = utils.buildScriptElement(obj);
+  t.equal(result, '<script type="module">import("/foo");</script>');
+  t.end();
 });
 
-test('.buildScriptElement() - strategy lazy - automatically includes type="module" if not provided', (t) => {
-	const obj = new AssetJs({ value: '/foo', strategy: 'lazy' });
-	const result = utils.buildScriptElement(obj);
-	t.equal(result, '<script type="module">import("/foo");</script>');
+tap.test('.buildScriptElement() - strategy lazy - automatically includes type="module" if not provided', (t) => {
+  const obj = new AssetJs({ value: '/foo', strategy: 'lazy' });
+  const result = utils.buildScriptElement(obj);
+  t.equal(result, '<script type="module">import("/foo");</script>');
+  t.end();
 });
 
 tap.test('.buildScriptAttributes() - advanced', (t) => {

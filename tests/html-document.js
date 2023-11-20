@@ -74,7 +74,7 @@ tap.test('.document() - js "type" is "esm"', (t) => {
     t.end();
 });
 
-test('.document() - js "type" is "esm" - should set type to module on script tags', () => {
+tap.test('.document() - "type" is "module", "strategy" is set - should place assets based on strategy', (t) => {
     const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES);
     incoming.css = [{ value: 'http://somecssurl1.com', type: 'text/css' }];
     incoming.js = [
@@ -84,5 +84,6 @@ test('.document() - js "type" is "esm" - should set type to module on script tag
     ];
 
     const result = document(incoming);
-    expect(result).toMatchSnapshot();
+    t.matchSnapshot(result);
+    t.end();
 });
