@@ -1,8 +1,7 @@
 import tap from 'tap';
 import AssetCss from '../lib/asset-css.js';
-import AssetJs from '../lib/asset-js.js'
-import * as utils from '../lib/html-utils.js'
-
+import AssetJs from '../lib/asset-js.js';
+import * as utils from '../lib/html-utils.js';
 
 /**
  * .buildLinkElement()
@@ -301,10 +300,12 @@ tap.test('.buildScriptElement() - "async" property is "true" - should appended "
 tap.test('.buildScriptElement() - "data" property has a value - should appended "data" attribute to element', (t) => {
     const obj = new AssetJs({
         value: '/foo',
-        data: [{ 
-            key: 'foo',
-            value: 'bar'     
-        }],
+        data: [
+            {
+                key: 'foo',
+                value: 'bar',
+            },
+        ],
     });
     const result = utils.buildScriptElement(obj);
     t.equal(result, '<script src="/foo" data-foo="bar"></script>');
@@ -420,6 +421,20 @@ tap.test('.buildScriptAttributes() - basic', (t) => {
         { key: 'src', value: '/bar' }
     ]);
     t.end();
+});
+
+tap.test('.buildScriptElement() - strategy lazy - builds HTML with dynamic import', (t) => {
+  const obj = new AssetJs({ value: '/foo', type: 'module', strategy: 'lazy' });
+  const result = utils.buildScriptElement(obj);
+  t.equal(result, '<script type="module">import("/foo");</script>');
+  t.end();
+});
+
+tap.test('.buildScriptElement() - strategy lazy - automatically includes type="module" if not provided', (t) => {
+  const obj = new AssetJs({ value: '/foo', strategy: 'lazy' });
+  const result = utils.buildScriptElement(obj);
+  t.equal(result, '<script type="module">import("/foo");</script>');
+  t.end();
 });
 
 tap.test('.buildScriptAttributes() - advanced', (t) => {

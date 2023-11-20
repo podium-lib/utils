@@ -73,3 +73,17 @@ tap.test('.document() - js "type" is "esm"', (t) => {
     t.matchSnapshot(result, 'should set type to module on script tags');
     t.end();
 });
+
+tap.test('.document() - "type" is "module", "strategy" is set - should place assets based on strategy', (t) => {
+    const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES);
+    incoming.css = [{ value: 'http://somecssurl1.com', type: 'text/css' }];
+    incoming.js = [
+        { value: 'http://somejsurl1.com/lazy', type: 'module', strategy: 'lazy' },
+        { value: 'http://somejsurl2.com/before', type: 'module', strategy: 'beforeInteractive' },
+        { value: 'http://somejsurl3.com/after', type: 'module', strategy: 'afterInteractive' },
+    ];
+
+    const result = document(incoming);
+    t.matchSnapshot(result);
+    t.end();
+});
