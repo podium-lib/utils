@@ -6,30 +6,84 @@ declare interface PodiumAsset {
     toHTML(): string;
 }
 
-export interface AssetCss extends PodiumAsset {
-    as?: Pick<HTMLLinkElement, 'as'>;
-    crossorigin?: Pick<HTMLLinkElement, 'crossOrigin'>;
-    disabled?: Pick<HTMLLinkElement, 'disabled'>;
-    hreflang?: Pick<HTMLLinkElement, 'hreflang'>;
-    title?: Pick<HTMLLinkElement, 'title'>;
-    media?: Pick<HTMLLinkElement, 'media'>;
-    rel?: Pick<HTMLLinkElement, 'rel'>;
-    type?: Pick<HTMLLinkElement, 'type'>;
+export class AssetCss
+    implements
+        Pick<
+            HTMLLinkElement,
+            'as' | 'disabled' | 'hreflang' | 'title' | 'media' | 'rel' | 'type'
+        >,
+        PodiumAsset
+{
+    constructor(options?: {
+        as?: string | false | null;
+        crossorigin?: string | null | boolean;
+        disabled?: boolean | '' | null;
+        hreflang?: string | false | null;
+        title?: string | false | null;
+        media?: string | false | null;
+        rel?: string | false | null;
+        type?: string | false | null;
+        value: string | false | null;
+        data?: Array<{ key: string; value: string }>;
+        strategy?: "beforeInteractive" | "afterInteractive" | "lazy";
+        scope?: "content" | "fallback" | "all";
+    });
+
+    as: string;
+    crossorigin: string | null;
+    disabled: boolean;
+    hreflang: string;
+    title: string;
+    media: string;
+    rel: string;
+    type: string;
+    readonly value: string;
+    data?: Array<{ key: string; value: string }>;
+    strategy?: "beforeInteractive" | "afterInteractive" | "lazy";
+    scope?: "content" | "fallback" | "all";
+    toHTML(): string;
+    toJSON(): Record<string, any>;
+    toJsxAttributes(): Record<string, any>;
 }
 
-export interface AssetJs extends PodiumAsset {
-    referrerpolicy?: Pick<HTMLScriptElement, 'referrerPolicy'>;
-    crossorigin?: Pick<HTMLScriptElement, 'crossOrigin'>;
-    integrity?: Pick<HTMLScriptElement, 'integrity'>;
-    nomodule?: Pick<HTMLScriptElement, 'noModule'>;
-    async?: Pick<HTMLScriptElement, 'async'>;
-    defer?: Pick<HTMLScriptElement, 'defer'>;
-    type?: Pick<HTMLScriptElement, 'type'>;
-    data?: DOMStringMap;
+export class AssetJs
+    implements
+        Pick<HTMLScriptElement, 'integrity' | 'async' | 'defer' | 'type'>,
+        PodiumAsset
+{
+    constructor(options?: {
+        crossorigin?: string | null | boolean;
+        type?: string | null | false;
+        integrity?: string | null | false;
+        referrerpolicy?: string | null | false;
+        nomodule?: boolean | null | '';
+        async?: boolean | null | '';
+        defer?: boolean | null | '';
+        value: string | null;
+        data?: Array<{ key: string; value: string }>;
+        strategy?: "beforeInteractive" | "afterInteractive" | "lazy";
+        scope?: "content" | "fallback" | "all";
+    });
+
+    crossorigin: string | null;
+    type: string;
+    integrity: string;
+    referrerpolicy: string;
+    nomodule: boolean;
+    async: boolean;
+    defer: boolean;
+    prefix?: boolean;
+    readonly value: string;
+    data?: Array<{ key: string; value: string }>;
+    strategy?: "beforeInteractive" | "afterInteractive" | "lazy";
+    scope?: "content" | "fallback" | "all";
+    toHTML(): string;
+    toJSON(): Record<string, any>;
+    toJsxAttributes(): Record<string, any>;
 }
 
 export class HttpIncoming<T = { [key: string]: unknown }> {
-    constructor(request: IncomingMessage, response: ServerResponse, params: T);
+    constructor(request: IncomingMessage, response: ServerResponse, params?: T);
 
     development: boolean;
 
