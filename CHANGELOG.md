@@ -1,3 +1,82 @@
+# [5.0.0](https://github.com/podium-lib/utils/compare/v4.5.1...v5.0.0) (2023-11-28)
+
+
+### Bug Fixes
+
+* Improve ESM exports to account for dual module exports ([#123](https://github.com/podium-lib/utils/issues/123)) ([42ebb4f](https://github.com/podium-lib/utils/commit/42ebb4f3b560bd41fb15019654e60520cbb973a6))
+* Point require export to main.js ([#122](https://github.com/podium-lib/utils/issues/122)) ([1438ee6](https://github.com/podium-lib/utils/commit/1438ee66eb04bdc289b8b8ba2a3f20b2f6311ea1))
+* Remove original url module ([#185](https://github.com/podium-lib/utils/issues/185)) ([6c01c0f](https://github.com/podium-lib/utils/commit/6c01c0f44e3b24c7f481a2504003903529e8f80e))
+* Simplify js and css value validation ([#70](https://github.com/podium-lib/utils/issues/70)) ([05a1ffc](https://github.com/podium-lib/utils/commit/05a1ffc17bce3249b349b218a9b5ea8585db5df8))
+
+
+### Features
+
+* Convert to ESM ([#119](https://github.com/podium-lib/utils/issues/119)) ([349c5b9](https://github.com/podium-lib/utils/commit/349c5b928726d8f808107ce4d0c0abfd1d15e937))
+* Drop node 10.x support ([#67](https://github.com/podium-lib/utils/issues/67)) ([84203f8](https://github.com/podium-lib/utils/commit/84203f8ee2591b331aa52b2f70035b2a73f9d95e))
+* Remove CJS build step ([#170](https://github.com/podium-lib/utils/issues/170)) ([15390ed](https://github.com/podium-lib/utils/commit/15390ed2185fe0e8bc28217a5fff4eb228694c7c))
+* Use ES private properties instead of Symbols for privacy ([#72](https://github.com/podium-lib/utils/issues/72)) ([4083fa1](https://github.com/podium-lib/utils/commit/4083fa17301630d3669f8c819978fa2a99e5274d))
+
+
+### BREAKING CHANGES
+
+* Convert from CommonJS to ESM
+
+* feat: convert to ESM
+
+* fix: Remove outcommented code
+
+* ci: Add build step for backward compat to CJS
+
+* ci: Ignore linting dist directory
+
+Co-authored-by: Trygve Lie <trygve.lie@finn.no>
+* Due to dropping node 10.x support we use ES private properties instead of Symbols.
+
+We've been using Symbols to define private properties in classes up until now. This has the downside that they are not true private and in later versions of node.js one would see these Symbols when inspecting an object. What we want is proper private properties.
+
+This PR does also add a pretty printer which outputs an object literal or the object so when debugging one can see the getters and setters of the object.
+
+Example: printing a object with `console.log()` would previously print the following:
+
+```sh
+PodiumHttpIncoming {
+  [Symbol(podium:httpincoming:development)]: false,
+  [Symbol(podium:httpincoming:response)]: {},
+  [Symbol(podium:httpincoming:request)]: {},
+  [Symbol(podium:httpincoming:context)]: {},
+  [Symbol(podium:httpincoming:params)]: {},
+  [Symbol(podium:httpincoming:proxy)]: false,
+  [Symbol(podium:httpincoming:name)]: '',
+  [Symbol(podium:httpincoming:view)]: {},
+  [Symbol(podium:httpincoming:url)]: {},
+  [Symbol(podium:httpincoming:css)]: [],
+  [Symbol(podium:httpincoming:js)]: []
+}
+```
+
+Now the following will be printed:
+
+```sh
+{
+  development: false,
+  response: {},
+  request: {},
+  context: {},
+  params: {},
+  proxy: false,
+  name: '',
+  view: {},
+  url: {},
+  css: [],
+  js: []
+}
+```
+
+Co-authored-by: Trygve Lie <trygve.lie@finn.no>
+* Only support node 12 and 14.
+
+Co-authored-by: Trygve Lie <trygve.lie@finn.no>
+
 # [5.0.0-next.10](https://github.com/podium-lib/utils/compare/v5.0.0-next.9...v5.0.0-next.10) (2023-11-20)
 
 
