@@ -55,6 +55,6 @@
         "@podium/schemas": "5.0.0"
     },
     "dependencies": {
-        "camelcase": "6.3.0"
+        "camelcase": "8.0.0"
     }
 }
