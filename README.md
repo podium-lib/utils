@@ -42,12 +42,12 @@ Constructs an pathname from all arguments. Returned pathname will always end wit
 a `/` and if the first argument starts with a `/` it will be preserved.
 
 ```js
-const utils = require('@podium/utils');
+import { pathnameBuilder } from '@podium/utils';
 const foo = 'foo/a/';
 const bar = '/bar/b/';
 const xyz = '/xyz/';
 
-const pathname = utils.pathnameBuilder(foo, bar, xyz);
+const pathname = pathnameBuilder(foo, bar, xyz);
 console.log(pathname); // outputs: foo/a/bar/b/xyz
 ```
 
@@ -64,11 +64,11 @@ The method takes the following arguments:
 Returns a resolved URI.
 
 ```js
-const utils = require('@podium/utils');
+import { uriBuilder } from '@podium/utils';
 const manifest = 'http://foo.site.com/bar/manifest.json';
 const content = '/here/is/content.html';
 
-const url = utils.uriBuilder(content, manifest);
+const url = uriBuilder(content, manifest);
 console.log(url); // outputs: http://foo.site.com/bar/here/is/content.html
 ```
 
@@ -83,10 +83,10 @@ The method takes the following arguments:
 Returns a Boolean.
 
 ```js
-const utils = require('@podium/utils');
+import { uriIsRelative } from '@podium/utils';
 
-utils.uriIsRelative('http://foo.site.com/bar/'); // false
-utils.uriIsRelative('/bar/'); // true
+uriIsRelative('http://foo.site.com/bar/'); // false
+uriIsRelative('/bar/'); // true
 ```
 
 ### .uriRelativeToAbsolute(input, base, extra)
@@ -103,11 +103,11 @@ The method takes the following arguments:
 Returns a resolved URI.
 
 ```js
-const utils = require('@podium/utils');
+import { uriRelativeToAbsolute } from '@podium/utils';
 const manifest = 'http://foo.site.com/bar/manifest.json';
 const content = 'http://foo.site.com/here/is/content.html';
 
-const url = utils.uriRelativeToAbsolute(content, manifest);
+const url = uriRelativeToAbsolute(content, manifest);
 console.log(url); // outputs: http://foo.site.com/here/is/content.html
 ```
 
@@ -128,7 +128,8 @@ The method takes the following arguments:
 The http response object.
 
 ```js
-const obj = utils.setAtLocalsPodium({}, 'foo', 'bar');
+import { setAtLocalsPodium } from '@podium/utils';
+const obj = setAtLocalsPodium({}, 'foo', 'bar');
 
 /*
 obj is now:
@@ -176,6 +177,7 @@ The method takes the following arguments:
 A http header object.
 
 ```js
+import { serializeContext } from '@podium/utils';
 const context = {
     'podium-foo': 'bar',
     'podium-bar': 'foo',
@@ -185,7 +187,7 @@ let headers = {
     test: 'xyz',
 };
 
-headers = utils.serializeContext(headers, context);
+headers = serializeContext(headers, context);
 
 /*
 headers is now:
@@ -209,12 +211,13 @@ The method takes the following arguments:
 A object containing context properties and values
 
 ```js
+import { deserializeContext } from '@podium/utils';
 const headers = {
     bar: 'foo',
     'podium-foo': 'bar podium',
 };
 
-const context = utils.deserializeContext(headers);
+const context = deserializeContext(headers);
 // context is: { foo: 'bar podium' }
 ```
 
@@ -245,13 +248,13 @@ The method takes the following arguments:
 -   assetCss - `Object` - A CSS Asset object
 
 ```js
-const utils = require('@podium/utils');
+import { AssetCss, buildLinkElement } from '@podium/utils';
 
-const css = new utils.AssetCss({
+const css = new AssetCss({
     value: 'https://cdn.foo.com/style.css'
 });
 
-const element = utils.buildLinkElement(css);
+const element = buildLinkElement(css);
 // element is: <link href="" .....
 ```
 
@@ -266,13 +269,13 @@ The method takes the following arguments:
 -   assetJs - `Object` - A JS Asset object
 
 ```js
-const utils = require('@podium/utils');
+import { AssetJs, buildScriptElement } from '@podium/utils';
 
 const js = new utils.AssetJs({
     value: 'https://cdn.foo.com/script.js'
 });
 
-const element = utils.buildLinkElement(js);
+const element = utils.buildScriptElement(js);
 // element is: <script src="" .....
 ```
 
