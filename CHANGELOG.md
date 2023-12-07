@@ -1,3 +1,10 @@
+## [5.0.1](https://github.com/podium-lib/utils/compare/v5.0.0...v5.0.1) (2023-12-07)
+
+
+### Bug Fixes
+
+* **deps:** update dependency camelcase to v8 ([4bb0483](https://github.com/podium-lib/utils/commit/4bb0483a98c888f2beaa6ec4bcf4b6f3541dae67))
+
 # [5.0.0](https://github.com/podium-lib/utils/compare/v4.5.1...v5.0.0) (2023-11-28)
 
 
