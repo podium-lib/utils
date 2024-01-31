@@ -443,18 +443,13 @@ tap.test('Js() - validate object against schema - should validate', (t) => {
     t.end();
 });
 
-tap.test('Js() - throws if trying to set both async and defer', (t) => {
-    t.throws(
-        () => {
-            // eslint-disable-next-line no-unused-vars
-            const asset = new AssetJs({
-                value: '/foo',
-                async: true,
-                defer: true,
-            });
-        },
-        /The "async" and "defer" attributes are mutually exclusive/,
-        'Should throw',
-    );
+tap.test('Js() - ignores async if both id and defer are set', (t) => {
+    const asset = new AssetJs({
+        value: '/foo',
+        async: true,
+        defer: true,
+    });
+    t.ok(asset.defer);
+    t.notOk(asset.async, 'Async should be ignored if defer is set');
     t.end();
 });
