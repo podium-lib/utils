@@ -1,3 +1,10 @@
+## [5.0.2](https://github.com/podium-lib/utils/compare/v5.0.1...v5.0.2) (2024-02-01)
+
+
+### Bug Fixes
+
+* validate inputs when passing both async and defer ([#226](https://github.com/podium-lib/utils/issues/226)) ([dfb40d6](https://github.com/podium-lib/utils/commit/dfb40d69a19aa82debb8a32768603c3a32cee597))
+
 ## [5.0.1](https://github.com/podium-lib/utils/compare/v5.0.0...v5.0.1) (2023-12-07)
 
 
