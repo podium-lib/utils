@@ -32,8 +32,8 @@
     "scripts": {
         "lint": "eslint .",
         "lint:fix": "eslint --fix .",
-        "test": "tap --no-check-coverage",
-        "test:snapshots:update": "tap --snapshot",
+        "test": "tap --disable-coverage --allow-empty-coverage",
+        "test:snapshots:update": "TAP_SNAPSHOT=1 npm t",
         "bench": "node benchmark/benchmark.js"
     },
     "devDependencies": {
