@@ -12,7 +12,7 @@ tap.test('.buildLinkElement() - "value" property has a value - should appended "
         value: '/foo',
     });
     const result = utils.buildLinkElement(obj);
-    t.equal(result, 
+    t.equal(result,
         '<link href="/foo" type="text/css" rel="stylesheet">',
     );
     t.end();
@@ -24,7 +24,7 @@ tap.test('.buildLinkElement() - "crossorigin" property has a value - should appe
         crossorigin: 'bar',
     });
     const result = utils.buildLinkElement(obj);
-    t.equal(result, 
+    t.equal(result,
         '<link href="/foo" crossorigin="bar" type="text/css" rel="stylesheet">',
     );
     t.end();
@@ -36,7 +36,7 @@ tap.test('.buildLinkElement() - "disabled" property is "true" - should appended 
         disabled: true,
     });
     const result = utils.buildLinkElement(obj);
-    t.equal(result, 
+    t.equal(result,
         '<link href="/foo" disabled type="text/css" rel="stylesheet">',
     );
     t.end();
@@ -48,7 +48,7 @@ tap.test('.buildLinkElement() - "hreflang" property has a value - should appende
         hreflang: 'bar',
     });
     const result = utils.buildLinkElement(obj);
-    t.equal(result, 
+    t.equal(result,
         '<link href="/foo" hreflang="bar" type="text/css" rel="stylesheet">',
     );
     t.end();
@@ -60,7 +60,7 @@ tap.test('.buildLinkElement() - "title" property has a value - should appended "
         title: 'bar',
     });
     const result = utils.buildLinkElement(obj);
-    t.equal(result, 
+    t.equal(result,
         '<link href="/foo" title="bar" type="text/css" rel="stylesheet">',
     );
     t.end();
@@ -72,7 +72,7 @@ tap.test('.buildLinkElement() - "media" property has a value - should appended "
         media: 'bar',
     });
     const result = utils.buildLinkElement(obj);
-    t.equal(result, 
+    t.equal(result,
         '<link href="/foo" media="bar" type="text/css" rel="stylesheet">',
     );
     t.end();
@@ -84,7 +84,7 @@ tap.test('.buildLinkElement() - "as" property has a value - should appended "as"
         as: 'bar',
     });
     const result = utils.buildLinkElement(obj);
-    t.equal(result, 
+    t.equal(result,
         '<link href="/foo" as="bar" type="text/css" rel="stylesheet">',
     );
     t.end();
@@ -123,7 +123,7 @@ tap.test('.buildLinkElement() - properties are "undefined" - should NOT appended
         as: undefined,
     });
     const result = utils.buildLinkElement(obj);
-    t.equal(result, 
+    t.equal(result,
         '<link href="/foo" type="text/css" rel="stylesheet">',
     );
     t.end();
@@ -186,7 +186,7 @@ tap.test('.buildLinkElement() - crossorigin boolean true', (t) => {
         value: '/bar',
     });
     const result = utils.buildLinkElement(obj);
-    t.equal(result, 
+    t.equal(result,
         `<link href="/bar" crossorigin type="text/css" rel="stylesheet">`,
     );
     t.end();
@@ -198,7 +198,7 @@ tap.test('.buildLinkElement() - crossorigin boolean false', (t) => {
         value: '/bar',
     });
     const result = utils.buildLinkElement(obj);
-    t.equal(result, 
+    t.equal(result,
         `<link href="/bar" type="text/css" rel="stylesheet">`,
     );
     t.end();
@@ -441,17 +441,15 @@ tap.test('.buildScriptAttributes() - advanced', (t) => {
     const obj = new AssetJs({
         value: '/bar',
         crossorigin: true,
-        async: true,
         integrity: 'fake',
         defer: true,
         type: 'module',
     });
-    t.same(utils.buildScriptAttributes(obj), [ 
+    t.same(utils.buildScriptAttributes(obj), [
         { key: 'src', value: '/bar' },
         { key: 'type', value: 'module' },
         { key: 'crossorigin' },
         { key: 'integrity', value: 'fake' },
-        { key: 'async' },
         { key: 'defer' },
     ]);
     t.end();
@@ -459,7 +457,7 @@ tap.test('.buildScriptAttributes() - advanced', (t) => {
 
 tap.test('.buildLinkAttributes() - basic', (t) => {
     const obj = new AssetCss({ value: '/bar' });
-    t.same(utils.buildLinkAttributes(obj), [ 
+    t.same(utils.buildLinkAttributes(obj), [
         { key: 'href', value: '/bar' },
         { key: 'type', value: 'text/css' },
         { key: 'rel', value: 'stylesheet' },
@@ -497,15 +495,13 @@ tap.test('.buildReactScriptAttributes()', (t) => {
         value: '/bar',
         crossorigin: true,
         async: true,
-        defer: true,
         nomodule: true,
     });
-    t.same(utils.buildReactScriptAttributes(obj), { 
+    t.same(utils.buildReactScriptAttributes(obj), {
         src: '/bar',
         crossOrigin: '',
         noModule: true,
         async: true,
-        defer: true,
     });
     t.end();
 });
@@ -516,7 +512,7 @@ tap.test('.buildReactLinkAttributes()', (t) => {
         crossorigin: true,
         disabled: true,
     });
-    t.same(utils.buildReactLinkAttributes(obj), { 
+    t.same(utils.buildReactLinkAttributes(obj), {
         href: '/bar',
         crossOrigin: '',
         rel: 'stylesheet',
