@@ -1,3 +1,10 @@
+## [5.0.3](https://github.com/podium-lib/utils/compare/v5.0.2...v5.0.3) (2024-04-11)
+
+
+### Bug Fixes
+
+* ensure html-template lang attribute works in both layout and podlet ([2545ac8](https://github.com/podium-lib/utils/commit/2545ac851bfa119a60508ea8152fa4cd2a2e5b3f))
+
 ## [5.0.2](https://github.com/podium-lib/utils/compare/v5.0.1...v5.0.2) (2024-02-01)
 
 
