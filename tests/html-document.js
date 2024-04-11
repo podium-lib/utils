@@ -87,3 +87,27 @@ tap.test('.document() - "type" is "module", "strategy" is set - should place ass
     t.matchSnapshot(result);
     t.end();
 });
+
+tap.test('.document() - lang tag priority - params has priority', (t) => {
+    const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES, { locale: 'sv' });
+    const result = document(incoming, '');
+    t.match(result, 'lang="sv"', 'should render lang tag sv');
+    t.end();
+});
+
+tap.test('.document() - lang tag priority - context has priority', (t) => {
+    const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES, { locale: 'sv' });
+    incoming.context = { locale: 'en-NZ' };
+    const result = document(incoming, '');
+    t.match(result, 'lang="en-NZ"', 'should render lang tag en-NZ');
+    t.end();
+});
+
+tap.test('.document() - lang tag priority - view has priority', (t) => {
+    const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES, { locale: 'sv' });
+    incoming.context = { locale: 'en-NZ' };
+    incoming.view = { locale: 'nb' }
+    const result = document(incoming, '');
+    t.match(result, 'lang="nb"', 'should render lang tag nb');
+    t.end();
+});
