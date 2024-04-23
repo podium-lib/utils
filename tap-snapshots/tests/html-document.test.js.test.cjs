@@ -5,7 +5,7 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`tests/html-document.js TAP .document() - "type" is "module", "strategy" is set - should place assets based on strategy > must match snapshot 1`] = `
+exports[`tests/html-document.test.js TAP .document() - "type" is "module", "strategy" is set - should place assets based on strategy > must match snapshot 1`] = `
 <!doctype html>
 <html lang="en-US">
     <head>
@@ -25,7 +25,7 @@ exports[`tests/html-document.js TAP .document() - "type" is "module", "strategy"
 </html>
 `
 
-exports[`tests/html-document.js TAP .document() - arguments given - handles v4 js and css syntax > should render template using values given 1`] = `
+exports[`tests/html-document.test.js TAP .document() - arguments given - handles v4 js and css syntax > should render template using values given 1`] = `
 <!doctype html>
 <html lang="en-US">
     <head>
@@ -49,7 +49,7 @@ exports[`tests/html-document.js TAP .document() - arguments given - handles v4 j
 </html>
 `
 
-exports[`tests/html-document.js TAP .document() - arguments given > should render template using values given 1`] = `
+exports[`tests/html-document.test.js TAP .document() - arguments given > should render template using values given 1`] = `
 <!doctype html>
 <html lang="en-NZ">
     <head>
@@ -69,7 +69,7 @@ exports[`tests/html-document.js TAP .document() - arguments given > should rende
 </html>
 `
 
-exports[`tests/html-document.js TAP .document() - js "type" is "esm" > should set type to module on script tags 1`] = `
+exports[`tests/html-document.test.js TAP .document() - js "type" is "esm" > should set type to module on script tags 1`] = `
 <!doctype html>
 <html lang="en-US">
     <head>
@@ -93,7 +93,7 @@ exports[`tests/html-document.js TAP .document() - js "type" is "esm" > should se
 </html>
 `
 
-exports[`tests/html-document.js TAP .document() - no arguments given > should render template 1`] = `
+exports[`tests/html-document.test.js TAP .document() - no arguments given > should render template 1`] = `
 <!doctype html>
 <html lang="en-US">
     <head>
