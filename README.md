@@ -2,14 +2,12 @@
 
 Common generic utility methods shared by @podium modules.
 
-[![Dependencies](https://img.shields.io/david/podium-lib/utils.svg)](https://david-dm.org/podium-lib/utils)
 ![GitHub Actions status](https://github.com/podium-lib/utils/workflows/Run%20Lint%20and%20Tests/badge.svg)
-[![Known Vulnerabilities](https://snyk.io/test/github/podium-lib/utils/badge.svg?targetFile=package.json&style=flat-square)](https://snyk.io/test/github/podium-lib/utils?targetFile=package.json)
 
 ## Installation
 
 ```bash
-$ npm install @podium/utils
+npm install @podium/utils
 ```
 
 ## API
@@ -251,7 +249,7 @@ The method takes the following arguments:
 import { AssetCss, buildLinkElement } from '@podium/utils';
 
 const css = new AssetCss({
-    value: 'https://cdn.foo.com/style.css'
+    value: 'https://cdn.foo.com/style.css',
 });
 
 const element = buildLinkElement(css);
@@ -272,7 +270,7 @@ The method takes the following arguments:
 import { AssetJs, buildScriptElement } from '@podium/utils';
 
 const js = new utils.AssetJs({
-    value: 'https://cdn.foo.com/script.js'
+    value: 'https://cdn.foo.com/script.js',
 });
 
 const element = utils.buildScriptElement(js);
