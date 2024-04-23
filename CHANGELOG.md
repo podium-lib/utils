@@ -1,3 +1,10 @@
+## [5.0.4](https://github.com/podium-lib/utils/compare/v5.0.3...v5.0.4) (2024-04-23)
+
+
+### Bug Fixes
+
+* generate types from JSDoc ([#233](https://github.com/podium-lib/utils/issues/233)) ([53200f4](https://github.com/podium-lib/utils/commit/53200f44e5e6811e764d917ea46edff372f3939d))
+
 ## [5.0.3](https://github.com/podium-lib/utils/compare/v5.0.2...v5.0.3) (2024-04-11)
 
 
