@@ -25,7 +25,7 @@
     "LICENSE",
     "dist",
     "lib",
-    "types.d.ts"
+    "types"
   ],
   "main": "./lib/main.js",
   "types": "./types/main.d.ts",
