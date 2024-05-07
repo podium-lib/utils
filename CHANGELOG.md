@@ -1,3 +1,10 @@
+## [5.0.5](https://github.com/podium-lib/utils/compare/v5.0.4...v5.0.5) (2024-05-07)
+
+
+### Bug Fixes
+
+* include the types folder in the distributed package ([#236](https://github.com/podium-lib/utils/issues/236)) ([fcf16d0](https://github.com/podium-lib/utils/commit/fcf16d031e02a8b658dee625be1f174cc7a324ed))
+
 ## [5.0.4](https://github.com/podium-lib/utils/compare/v5.0.3...v5.0.4) (2024-04-23)
 
 
