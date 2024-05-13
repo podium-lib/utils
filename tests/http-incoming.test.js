@@ -125,6 +125,7 @@ tap.test('PodiumHttpIncoming.params - set value', (t) => {
     const incoming = new HttpIncoming(ADVANCED_REQ, SIMPLE_RES);
     t.throws(
         () => {
+            // @ts-ignore Testing bad input
             incoming.params = 'foo';
         },
         /Cannot set read-only property./,
@@ -311,3 +312,17 @@ tap.test(
         t.end();
     },
 );
+
+tap.test('generic typing works as expected', (t) => {
+    // really only here for tsc
+
+    /**
+     * @template {{ [key: string]: unknown }} T
+     * @param {( incoming: HttpIncoming<T>, fragment: string, ...args: unknown[]) => string} fn
+     * @returns {void}
+     */
+    // eslint-disable-next-line no-unused-vars
+    function view(fn) {}
+    t.ok(view);
+    t.end();
+});
