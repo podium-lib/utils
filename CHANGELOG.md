@@ -1,3 +1,10 @@
+## [5.0.6](https://github.com/podium-lib/utils/compare/v5.0.5...v5.0.6) (2024-05-13)
+
+
+### Bug Fixes
+
+* add back generics to httpincoming ([#237](https://github.com/podium-lib/utils/issues/237)) ([4c70da7](https://github.com/podium-lib/utils/commit/4c70da7699e05321005575105ea3d99673b9a07d))
+
 ## [5.0.5](https://github.com/podium-lib/utils/compare/v5.0.4...v5.0.5) (2024-05-07)
 
 
