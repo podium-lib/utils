@@ -326,3 +326,35 @@ tap.test('generic typing works as expected', (t) => {
     t.ok(view);
     t.end();
 });
+
+tap.test('can read values from context with default types', (t) => {
+    // really only here for tsc
+
+    /**
+     * @type {HttpIncoming}
+     */
+    const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES);
+    incoming.context = {
+        'podium-foo-bar': 'value',
+        foo: 'value',
+    };
+    t.ok(incoming.context['podium-foo-bar']);
+    t.ok(incoming.context.foo);
+    t.ok(incoming);
+    t.end();
+});
+
+tap.test('can read values from view with default types', (t) => {
+    // really only here for tsc
+
+    /**
+     * @type {HttpIncoming}
+     */
+    const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES);
+    incoming.view = {
+        foo: 'value',
+    };
+    t.ok(incoming.view.foo);
+    t.ok(incoming);
+    t.end();
+});
