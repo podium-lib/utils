@@ -1,3 +1,10 @@
+## [5.0.7](https://github.com/podium-lib/utils/compare/v5.0.6...v5.0.7) (2024-05-15)
+
+
+### Bug Fixes
+
+* type context and view to Record instead of {} ([#238](https://github.com/podium-lib/utils/issues/238)) ([ab68b88](https://github.com/podium-lib/utils/commit/ab68b88e750f9314457d3b954ca3b954b8e44d61))
+
 ## [5.0.6](https://github.com/podium-lib/utils/compare/v5.0.5...v5.0.6) (2024-05-13)
 
 
