@@ -46,7 +46,7 @@
     "@semantic-release/github": "9.2.6",
     "@semantic-release/npm": "11.0.3",
     "@semantic-release/release-notes-generator": "12.1.0",
-    "@types/node": "20.12.7",
+    "@types/node": "20.14.9",
     "benchmark": "2.1.4",
     "eslint": "8.57.0",
     "eslint-config-airbnb-base": "15.0.0",
