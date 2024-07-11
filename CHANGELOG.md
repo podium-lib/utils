@@ -7,79 +7,71 @@
 
 ## [5.0.6](https://github.com/podium-lib/utils/compare/v5.0.5...v5.0.6) (2024-05-13)
 
-
 ### Bug Fixes
 
-* add back generics to httpincoming ([#237](https://github.com/podium-lib/utils/issues/237)) ([4c70da7](https://github.com/podium-lib/utils/commit/4c70da7699e05321005575105ea3d99673b9a07d))
+-   add back generics to httpincoming ([#237](https://github.com/podium-lib/utils/issues/237)) ([4c70da7](https://github.com/podium-lib/utils/commit/4c70da7699e05321005575105ea3d99673b9a07d))
 
 ## [5.0.5](https://github.com/podium-lib/utils/compare/v5.0.4...v5.0.5) (2024-05-07)
 
-
 ### Bug Fixes
 
-* include the types folder in the distributed package ([#236](https://github.com/podium-lib/utils/issues/236)) ([fcf16d0](https://github.com/podium-lib/utils/commit/fcf16d031e02a8b658dee625be1f174cc7a324ed))
+-   include the types folder in the distributed package ([#236](https://github.com/podium-lib/utils/issues/236)) ([fcf16d0](https://github.com/podium-lib/utils/commit/fcf16d031e02a8b658dee625be1f174cc7a324ed))
 
 ## [5.0.4](https://github.com/podium-lib/utils/compare/v5.0.3...v5.0.4) (2024-04-23)
 
-
 ### Bug Fixes
 
-* generate types from JSDoc ([#233](https://github.com/podium-lib/utils/issues/233)) ([53200f4](https://github.com/podium-lib/utils/commit/53200f44e5e6811e764d917ea46edff372f3939d))
+-   generate types from JSDoc ([#233](https://github.com/podium-lib/utils/issues/233)) ([53200f4](https://github.com/podium-lib/utils/commit/53200f44e5e6811e764d917ea46edff372f3939d))
 
 ## [5.0.3](https://github.com/podium-lib/utils/compare/v5.0.2...v5.0.3) (2024-04-11)
 
-
 ### Bug Fixes
 
-* ensure html-template lang attribute works in both layout and podlet ([2545ac8](https://github.com/podium-lib/utils/commit/2545ac851bfa119a60508ea8152fa4cd2a2e5b3f))
+-   ensure html-template lang attribute works in both layout and podlet ([2545ac8](https://github.com/podium-lib/utils/commit/2545ac851bfa119a60508ea8152fa4cd2a2e5b3f))
 
 ## [5.0.2](https://github.com/podium-lib/utils/compare/v5.0.1...v5.0.2) (2024-02-01)
 
-
 ### Bug Fixes
 
-* validate inputs when passing both async and defer ([#226](https://github.com/podium-lib/utils/issues/226)) ([dfb40d6](https://github.com/podium-lib/utils/commit/dfb40d69a19aa82debb8a32768603c3a32cee597))
+-   validate inputs when passing both async and defer ([#226](https://github.com/podium-lib/utils/issues/226)) ([dfb40d6](https://github.com/podium-lib/utils/commit/dfb40d69a19aa82debb8a32768603c3a32cee597))
 
 ## [5.0.1](https://github.com/podium-lib/utils/compare/v5.0.0...v5.0.1) (2023-12-07)
 
-
 ### Bug Fixes
 
-* **deps:** update dependency camelcase to v8 ([4bb0483](https://github.com/podium-lib/utils/commit/4bb0483a98c888f2beaa6ec4bcf4b6f3541dae67))
+-   **deps:** update dependency camelcase to v8 ([4bb0483](https://github.com/podium-lib/utils/commit/4bb0483a98c888f2beaa6ec4bcf4b6f3541dae67))
 
 # [5.0.0](https://github.com/podium-lib/utils/compare/v4.5.1...v5.0.0) (2023-11-28)
 
-
 ### Bug Fixes
 
-* Improve ESM exports to account for dual module exports ([#123](https://github.com/podium-lib/utils/issues/123)) ([42ebb4f](https://github.com/podium-lib/utils/commit/42ebb4f3b560bd41fb15019654e60520cbb973a6))
-* Point require export to main.js ([#122](https://github.com/podium-lib/utils/issues/122)) ([1438ee6](https://github.com/podium-lib/utils/commit/1438ee66eb04bdc289b8b8ba2a3f20b2f6311ea1))
-* Remove original url module ([#185](https://github.com/podium-lib/utils/issues/185)) ([6c01c0f](https://github.com/podium-lib/utils/commit/6c01c0f44e3b24c7f481a2504003903529e8f80e))
-* Simplify js and css value validation ([#70](https://github.com/podium-lib/utils/issues/70)) ([05a1ffc](https://github.com/podium-lib/utils/commit/05a1ffc17bce3249b349b218a9b5ea8585db5df8))
-
+-   Improve ESM exports to account for dual module exports ([#123](https://github.com/podium-lib/utils/issues/123)) ([42ebb4f](https://github.com/podium-lib/utils/commit/42ebb4f3b560bd41fb15019654e60520cbb973a6))
+-   Point require export to main.js ([#122](https://github.com/podium-lib/utils/issues/122)) ([1438ee6](https://github.com/podium-lib/utils/commit/1438ee66eb04bdc289b8b8ba2a3f20b2f6311ea1))
+-   Remove original url module ([#185](https://github.com/podium-lib/utils/issues/185)) ([6c01c0f](https://github.com/podium-lib/utils/commit/6c01c0f44e3b24c7f481a2504003903529e8f80e))
+-   Simplify js and css value validation ([#70](https://github.com/podium-lib/utils/issues/70)) ([05a1ffc](https://github.com/podium-lib/utils/commit/05a1ffc17bce3249b349b218a9b5ea8585db5df8))
 
 ### Features
 
-* Convert to ESM ([#119](https://github.com/podium-lib/utils/issues/119)) ([349c5b9](https://github.com/podium-lib/utils/commit/349c5b928726d8f808107ce4d0c0abfd1d15e937))
-* Drop node 10.x support ([#67](https://github.com/podium-lib/utils/issues/67)) ([84203f8](https://github.com/podium-lib/utils/commit/84203f8ee2591b331aa52b2f70035b2a73f9d95e))
-* Remove CJS build step ([#170](https://github.com/podium-lib/utils/issues/170)) ([15390ed](https://github.com/podium-lib/utils/commit/15390ed2185fe0e8bc28217a5fff4eb228694c7c))
-* Use ES private properties instead of Symbols for privacy ([#72](https://github.com/podium-lib/utils/issues/72)) ([4083fa1](https://github.com/podium-lib/utils/commit/4083fa17301630d3669f8c819978fa2a99e5274d))
-
+-   Convert to ESM ([#119](https://github.com/podium-lib/utils/issues/119)) ([349c5b9](https://github.com/podium-lib/utils/commit/349c5b928726d8f808107ce4d0c0abfd1d15e937))
+-   Drop node 10.x support ([#67](https://github.com/podium-lib/utils/issues/67)) ([84203f8](https://github.com/podium-lib/utils/commit/84203f8ee2591b331aa52b2f70035b2a73f9d95e))
+-   Remove CJS build step ([#170](https://github.com/podium-lib/utils/issues/170)) ([15390ed](https://github.com/podium-lib/utils/commit/15390ed2185fe0e8bc28217a5fff4eb228694c7c))
+-   Use ES private properties instead of Symbols for privacy ([#72](https://github.com/podium-lib/utils/issues/72)) ([4083fa1](https://github.com/podium-lib/utils/commit/4083fa17301630d3669f8c819978fa2a99e5274d))
 
 ### BREAKING CHANGES
 
-* Convert from CommonJS to ESM
+-   Convert from CommonJS to ESM
 
-* feat: convert to ESM
+-   feat: convert to ESM
 
-* fix: Remove outcommented code
+-   fix: Remove outcommented code
 
-* ci: Add build step for backward compat to CJS
+-   ci: Add build step for backward compat to CJS
 
-* ci: Ignore linting dist directory
+-   ci: Ignore linting dist directory
 
 Co-authored-by: Trygve Lie <trygve.lie@finn.no>
-* Due to dropping node 10.x support we use ES private properties instead of Symbols.
+
+-   Due to dropping node 10.x support we use ES private properties instead of Symbols.
 
 We've been using Symbols to define private properties in classes up until now. This has the downside that they are not true private and in later versions of node.js one would see these Symbols when inspecting an object. What we want is proper private properties.
 
@@ -122,29 +114,28 @@ Now the following will be printed:
 ```
 
 Co-authored-by: Trygve Lie <trygve.lie@finn.no>
-* Only support node 12 and 14.
+
+-   Only support node 12 and 14.
 
 Co-authored-by: Trygve Lie <trygve.lie@finn.no>
 
 # [5.0.0-next.10](https://github.com/podium-lib/utils/compare/v5.0.0-next.9...v5.0.0-next.10) (2023-11-20)
 
-
 ### Bug Fixes
 
-* add missing functions to type definition ([b260c4f](https://github.com/podium-lib/utils/commit/b260c4f34ffb4b298e55144f7db2333ad2fe3bf5))
-* correct typescript definitions for assets ([6b39222](https://github.com/podium-lib/utils/commit/6b392229f4a2ad254080c617990cb7faa457ac33))
-* correctly build lazy load script tag html when asset strategy is lazy ([b1b2646](https://github.com/podium-lib/utils/commit/b1b264678fdd463eec009216a7119af1ea706ba1))
-* **deps:** update dependency @podium/schemas to v4.1.33 ([8036aa7](https://github.com/podium-lib/utils/commit/8036aa7923f87cb4cbfadf06fb842bfe01fd10fd))
-* **deps:** update dependency @podium/schemas to v4.1.34 ([a86e661](https://github.com/podium-lib/utils/commit/a86e661567043e8261e2565fd3489dc873b53b09))
-* **deps:** update dependency @podium/schemas to v4.2.0 ([be92192](https://github.com/podium-lib/utils/commit/be92192ad2d0ce20ae4692f05110af87edb71ac7))
-* make AssetCss and AssetJs constructable for TS ([f3f7fee](https://github.com/podium-lib/utils/commit/f3f7fee09a5f2310e087f7e022319d39a51d520f))
-* mark params as optional ([51d84da](https://github.com/podium-lib/utils/commit/51d84dae08c30fe80d11d33adf4c740c572dd476))
-
+-   add missing functions to type definition ([b260c4f](https://github.com/podium-lib/utils/commit/b260c4f34ffb4b298e55144f7db2333ad2fe3bf5))
+-   correct typescript definitions for assets ([6b39222](https://github.com/podium-lib/utils/commit/6b392229f4a2ad254080c617990cb7faa457ac33))
+-   correctly build lazy load script tag html when asset strategy is lazy ([b1b2646](https://github.com/podium-lib/utils/commit/b1b264678fdd463eec009216a7119af1ea706ba1))
+-   **deps:** update dependency @podium/schemas to v4.1.33 ([8036aa7](https://github.com/podium-lib/utils/commit/8036aa7923f87cb4cbfadf06fb842bfe01fd10fd))
+-   **deps:** update dependency @podium/schemas to v4.1.34 ([a86e661](https://github.com/podium-lib/utils/commit/a86e661567043e8261e2565fd3489dc873b53b09))
+-   **deps:** update dependency @podium/schemas to v4.2.0 ([be92192](https://github.com/podium-lib/utils/commit/be92192ad2d0ce20ae4692f05110af87edb71ac7))
+-   make AssetCss and AssetJs constructable for TS ([f3f7fee](https://github.com/podium-lib/utils/commit/f3f7fee09a5f2310e087f7e022319d39a51d520f))
+-   mark params as optional ([51d84da](https://github.com/podium-lib/utils/commit/51d84dae08c30fe80d11d33adf4c740c572dd476))
 
 ### Features
 
-* add strategy and scope fields to AssetCss and AssetJs classes ([5a8ecb1](https://github.com/podium-lib/utils/commit/5a8ecb17ec41f252016b004caef5f207f80ada35))
-* update default document template to use asset strategy ([0688b03](https://github.com/podium-lib/utils/commit/0688b03821989263270d72b3a5833041f24ef46c))
+-   add strategy and scope fields to AssetCss and AssetJs classes ([5a8ecb1](https://github.com/podium-lib/utils/commit/5a8ecb17ec41f252016b004caef5f207f80ada35))
+-   update default document template to use asset strategy ([0688b03](https://github.com/podium-lib/utils/commit/0688b03821989263270d72b3a5833041f24ef46c))
 
 ## [4.5.1](https://github.com/podium-lib/utils/compare/v4.5.0...v4.5.1) (2023-11-19)
 
@@ -200,7 +191,7 @@ Co-authored-by: Trygve Lie <trygve.lie@finn.no>
 
 ### Bug Fixes
 
-* Improve ESM exports to account for dual module exports ([#123](https://github.com/podium-lib/utils/issues/123)) ([42ebb4f](https://github.com/podium-lib/utils/commit/42ebb4f3b560bd41fb15019654e60520cbb973a6))
+-   Improve ESM exports to account for dual module exports ([#123](https://github.com/podium-lib/utils/issues/123)) ([42ebb4f](https://github.com/podium-lib/utils/commit/42ebb4f3b560bd41fb15019654e60520cbb973a6))
 
 ## [4.4.42](https://github.com/podium-lib/utils/compare/v4.4.41...v4.4.42) (2023-11-16)
 
@@ -249,8 +240,7 @@ Co-authored-by: Trygve Lie <trygve.lie@finn.no>
 
 ### Bug Fixes
 
-* Point require export to main.js ([#122](https://github.com/podium-lib/utils/issues/122)) ([1438ee6](https://github.com/podium-lib/utils/commit/1438ee66eb04bdc289b8b8ba2a3f20b2f6311ea1))
-
+-   Point require export to main.js ([#122](https://github.com/podium-lib/utils/issues/122)) ([1438ee6](https://github.com/podium-lib/utils/commit/1438ee66eb04bdc289b8b8ba2a3f20b2f6311ea1))
 
 ## [4.4.35](https://github.com/podium-lib/utils/compare/v4.4.34...v4.4.35) (2022-02-05)
 
@@ -262,52 +252,50 @@ Co-authored-by: Trygve Lie <trygve.lie@finn.no>
 
 ### Bug Fixes
 
-* **deps:** update dependency @podium/schemas to v4.1.30 ([3a390ce](https://github.com/podium-lib/utils/commit/3a390cefe5fa96a75d694c62b2c24ef369a4d9bb))
+-   **deps:** update dependency @podium/schemas to v4.1.30 ([3a390ce](https://github.com/podium-lib/utils/commit/3a390cefe5fa96a75d694c62b2c24ef369a4d9bb))
 
 # [5.0.0-next.4](https://github.com/podium-lib/utils/compare/v5.0.0-next.3...v5.0.0-next.4) (2021-04-27)
 
 ### Bug Fixes
 
-* **deps:** update dependency @podium/schemas to v4.0.4 ([5ff49c0](https://github.com/podium-lib/utils/commit/5ff49c02e0999b2e7c105caad93f626d518d686f))
-* **deps:** update dependency @podium/schemas to v4.0.5 ([9bf1a14](https://github.com/podium-lib/utils/commit/9bf1a1491a59d17b4715e06fd3692ba8f1907ffa))
-* **deps:** update dependency @podium/schemas to v4.1.0 ([4ff5fe9](https://github.com/podium-lib/utils/commit/4ff5fe9ea31c7e999d953ca5acb5bd6417dbf3c5))
-* **deps:** update dependency @podium/schemas to v4.1.1 ([f2cc938](https://github.com/podium-lib/utils/commit/f2cc93840039fc47cac7e9ef2cd95dbb1395c8e5))
-* **deps:** update dependency @podium/schemas to v4.1.10 ([5a10235](https://github.com/podium-lib/utils/commit/5a10235b74a5faa7fc9cf65efc7aab69883f6781))
-* **deps:** update dependency @podium/schemas to v4.1.11 ([20941c6](https://github.com/podium-lib/utils/commit/20941c6912b60a4dd3c654a3e674589a0713ae30))
-* **deps:** update dependency @podium/schemas to v4.1.13 ([f677772](https://github.com/podium-lib/utils/commit/f6777726c06362b1de6acf1e613db1b0928456ba))
-* **deps:** update dependency @podium/schemas to v4.1.14 ([0deb0d0](https://github.com/podium-lib/utils/commit/0deb0d0ffa14735d6a1e850291322bb670eb5436))
-* **deps:** update dependency @podium/schemas to v4.1.15 ([446458c](https://github.com/podium-lib/utils/commit/446458c6bd75e2ca8efd21d37107188a7146cd1e))
-* Update @podium/schema to version 4.1.9 to fix ajv error ([#110](https://github.com/podium-lib/utils/issues/110)) ([08ee7df](https://github.com/podium-lib/utils/commit/08ee7dfa6bc8b413bb8ee12dd778606f0c6c04e4))
-* **deps:** update dependency @podium/schemas to v4.0.7 ([cbded99](https://github.com/podium-lib/utils/commit/cbded9938631209d7d1c3da3bf7600379d0524dc))
-* **deps:** update dependency @podium/schemas to v4.1.2 ([04c7b1b](https://github.com/podium-lib/utils/commit/04c7b1be013fb6be5b6a1d5a18f2a12946f0273f))
-* **deps:** update dependency @podium/schemas to v4.1.3 ([e663829](https://github.com/podium-lib/utils/commit/e66382960675a7770a77913611b67042efdf4755))
-* **deps:** update dependency @podium/schemas to v4.1.4 ([4cb9bb6](https://github.com/podium-lib/utils/commit/4cb9bb65c6da0cc56bbb96b9f9555ce3067a1359))
-* **deps:** update dependency @podium/schemas to v4.1.5 ([d920dab](https://github.com/podium-lib/utils/commit/d920dabf5f3ad3f5d55f3da204f01f36b83a1e17))
-* **deps:** update dependency @podium/schemas to v4.1.6 ([f92062c](https://github.com/podium-lib/utils/commit/f92062c4d3d403aef90978efce41e554645b97b2))
-* **deps:** update dependency @podium/schemas to v4.1.7 ([9eac72d](https://github.com/podium-lib/utils/commit/9eac72dc56b584ddfe9343757429f1b7daea86f3))
-* **deps:** update dependency @podium/schemas to v4.1.8 ([c8fde78](https://github.com/podium-lib/utils/commit/c8fde78758d7a6e36e90d37d066f11806ffad885))
-* **deps:** update dependency camelcase to v6.1.0 ([ef22149](https://github.com/podium-lib/utils/commit/ef2214918172d1b6044b72f44771c7fb22f5aa77))
-* **deps:** update dependency camelcase to v6.2.0 ([3e9dec9](https://github.com/podium-lib/utils/commit/3e9dec90c4d511b5d6abe1360bf9a1a8195d2833))
-
+-   **deps:** update dependency @podium/schemas to v4.0.4 ([5ff49c0](https://github.com/podium-lib/utils/commit/5ff49c02e0999b2e7c105caad93f626d518d686f))
+-   **deps:** update dependency @podium/schemas to v4.0.5 ([9bf1a14](https://github.com/podium-lib/utils/commit/9bf1a1491a59d17b4715e06fd3692ba8f1907ffa))
+-   **deps:** update dependency @podium/schemas to v4.1.0 ([4ff5fe9](https://github.com/podium-lib/utils/commit/4ff5fe9ea31c7e999d953ca5acb5bd6417dbf3c5))
+-   **deps:** update dependency @podium/schemas to v4.1.1 ([f2cc938](https://github.com/podium-lib/utils/commit/f2cc93840039fc47cac7e9ef2cd95dbb1395c8e5))
+-   **deps:** update dependency @podium/schemas to v4.1.10 ([5a10235](https://github.com/podium-lib/utils/commit/5a10235b74a5faa7fc9cf65efc7aab69883f6781))
+-   **deps:** update dependency @podium/schemas to v4.1.11 ([20941c6](https://github.com/podium-lib/utils/commit/20941c6912b60a4dd3c654a3e674589a0713ae30))
+-   **deps:** update dependency @podium/schemas to v4.1.13 ([f677772](https://github.com/podium-lib/utils/commit/f6777726c06362b1de6acf1e613db1b0928456ba))
+-   **deps:** update dependency @podium/schemas to v4.1.14 ([0deb0d0](https://github.com/podium-lib/utils/commit/0deb0d0ffa14735d6a1e850291322bb670eb5436))
+-   **deps:** update dependency @podium/schemas to v4.1.15 ([446458c](https://github.com/podium-lib/utils/commit/446458c6bd75e2ca8efd21d37107188a7146cd1e))
+-   Update @podium/schema to version 4.1.9 to fix ajv error ([#110](https://github.com/podium-lib/utils/issues/110)) ([08ee7df](https://github.com/podium-lib/utils/commit/08ee7dfa6bc8b413bb8ee12dd778606f0c6c04e4))
+-   **deps:** update dependency @podium/schemas to v4.0.7 ([cbded99](https://github.com/podium-lib/utils/commit/cbded9938631209d7d1c3da3bf7600379d0524dc))
+-   **deps:** update dependency @podium/schemas to v4.1.2 ([04c7b1b](https://github.com/podium-lib/utils/commit/04c7b1be013fb6be5b6a1d5a18f2a12946f0273f))
+-   **deps:** update dependency @podium/schemas to v4.1.3 ([e663829](https://github.com/podium-lib/utils/commit/e66382960675a7770a77913611b67042efdf4755))
+-   **deps:** update dependency @podium/schemas to v4.1.4 ([4cb9bb6](https://github.com/podium-lib/utils/commit/4cb9bb65c6da0cc56bbb96b9f9555ce3067a1359))
+-   **deps:** update dependency @podium/schemas to v4.1.5 ([d920dab](https://github.com/podium-lib/utils/commit/d920dabf5f3ad3f5d55f3da204f01f36b83a1e17))
+-   **deps:** update dependency @podium/schemas to v4.1.6 ([f92062c](https://github.com/podium-lib/utils/commit/f92062c4d3d403aef90978efce41e554645b97b2))
+-   **deps:** update dependency @podium/schemas to v4.1.7 ([9eac72d](https://github.com/podium-lib/utils/commit/9eac72dc56b584ddfe9343757429f1b7daea86f3))
+-   **deps:** update dependency @podium/schemas to v4.1.8 ([c8fde78](https://github.com/podium-lib/utils/commit/c8fde78758d7a6e36e90d37d066f11806ffad885))
+-   **deps:** update dependency camelcase to v6.1.0 ([ef22149](https://github.com/podium-lib/utils/commit/ef2214918172d1b6044b72f44771c7fb22f5aa77))
+-   **deps:** update dependency camelcase to v6.2.0 ([3e9dec9](https://github.com/podium-lib/utils/commit/3e9dec90c4d511b5d6abe1360bf9a1a8195d2833))
 
 ### Features
 
-* add .buildReactLinkAttributes and .buildReactScriptAttributes methods ([ffb0bff](https://github.com/podium-lib/utils/commit/ffb0bff96a998694cb7102e0f9dc14c943914f7a))
-* add .toReactAttrs() method to AssetJs and AssetCss classes and integration tests ([7ab097f](https://github.com/podium-lib/utils/commit/7ab097f51d48001c884eb734eb823b0516e2eb24))
-* Convert to ESM ([#119](https://github.com/podium-lib/utils/issues/119)) ([349c5b9](https://github.com/podium-lib/utils/commit/349c5b928726d8f808107ce4d0c0abfd1d15e937))
-
+-   add .buildReactLinkAttributes and .buildReactScriptAttributes methods ([ffb0bff](https://github.com/podium-lib/utils/commit/ffb0bff96a998694cb7102e0f9dc14c943914f7a))
+-   add .toReactAttrs() method to AssetJs and AssetCss classes and integration tests ([7ab097f](https://github.com/podium-lib/utils/commit/7ab097f51d48001c884eb734eb823b0516e2eb24))
+-   Convert to ESM ([#119](https://github.com/podium-lib/utils/issues/119)) ([349c5b9](https://github.com/podium-lib/utils/commit/349c5b928726d8f808107ce4d0c0abfd1d15e937))
 
 ### BREAKING CHANGES
 
-* Convert from CommonJS to ESM
+-   Convert from CommonJS to ESM
 
-* feat: convert to ESM
+-   feat: convert to ESM
 
-* fix: Remove outcommented code
+-   fix: Remove outcommented code
 
-* ci: Add build step for backward compat to CJS
+-   ci: Add build step for backward compat to CJS
 
-* ci: Ignore linting dist directory
+-   ci: Ignore linting dist directory
 
 Co-authored-by: Trygve Lie <trygve.lie@finn.no>
 
@@ -367,7 +355,7 @@ Co-authored-by: Trygve Lie <trygve.lie@finn.no>
 
 ### Bug Fixes
 
-* Simplify js and css value validation ([#70](https://github.com/podium-lib/utils/issues/70)) ([05a1ffc](https://github.com/podium-lib/utils/commit/05a1ffc17bce3249b349b218a9b5ea8585db5df8))
+-   Simplify js and css value validation ([#70](https://github.com/podium-lib/utils/issues/70)) ([05a1ffc](https://github.com/podium-lib/utils/commit/05a1ffc17bce3249b349b218a9b5ea8585db5df8))
 
 ## [4.4.33](https://github.com/podium-lib/utils/compare/v4.4.32...v4.4.33) (2022-01-01)
 
@@ -542,11 +530,11 @@ Co-authored-by: Trygve Lie <trygve.lie@finn.no>
 
 ### Features
 
-* Drop node 10.x support ([#67](https://github.com/podium-lib/utils/issues/67)) ([84203f8](https://github.com/podium-lib/utils/commit/84203f8ee2591b331aa52b2f70035b2a73f9d95e))
+-   Drop node 10.x support ([#67](https://github.com/podium-lib/utils/issues/67)) ([84203f8](https://github.com/podium-lib/utils/commit/84203f8ee2591b331aa52b2f70035b2a73f9d95e))
 
 ### BREAKING CHANGES
 
-* Only support node 12 and 14.
+-   Only support node 12 and 14.
 
 Co-authored-by: Trygve Lie <trygve.lie@finn.no>
 
@@ -638,4 +626,4 @@ The latest version of this document is always available in [releases][releases-u
 [unreleased]: https://github.com/podium-lib/utils/compare/v3.1.2...HEAD
 [3.1.2]: https://github.com/podium-lib/utils/releases/tag/v3.1.2
 [3.1.1]: https://github.com/podium-lib/utils/releases/tag/v3.1.1
-[releases-url]: https://github.com/podium-lib/utils/blob/master/CHANGELOG.md
+[releases-url]: https://github.com/podium-lib/utils/blob/main/CHANGELOG.md
