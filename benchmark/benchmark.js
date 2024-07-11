@@ -1,6 +1,4 @@
-
-
-/* eslint no-unused-vars: "off", import/no-extraneous-dependencies: "off", no-console: "off" */
+/* eslint no-unused-vars: "off", no-console: "off" */
 
 import benchmark from 'benchmark';
 import HttpIncoming from '../lib/http-incoming.js';
@@ -34,12 +32,12 @@ const PARAMS = {
 
 add('new HttpIncoming() - No params', () => {
     const incoming = new HttpIncoming(REQ, RES);
-    const {url} = incoming;
+    const { url } = incoming;
 });
 
 add('new HttpIncoming() - With params', () => {
     const incoming = new HttpIncoming(REQ, RES, PARAMS);
-    const {url} = incoming;
+    const { url } = incoming;
 });
 
 suite
@@ -50,4 +48,3 @@ suite
         }
     })
     .run();
-
