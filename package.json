@@ -33,7 +33,7 @@
     "bench": "node benchmark/benchmark.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "test": "run-s test:*",
+    "test": "run-s test:unit test:types",
     "test:unit": "tap --no-check-coverage",
     "test:types": "tsc --project tsconfig.test.json",
     "test:snapshots:update": "tap --snapshot",
