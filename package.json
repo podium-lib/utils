@@ -48,7 +48,7 @@
     "@semantic-release/github": "9.2.6",
     "@semantic-release/npm": "11.0.3",
     "@semantic-release/release-notes-generator": "12.1.0",
-    "@types/node": "20.14.9",
+    "@types/node": "20.14.13",
     "benchmark": "2.1.4",
     "eslint": "9.6.0",
     "eslint-config-prettier": "9.1.0",
