@@ -219,6 +219,11 @@ tap.test(
             type: 'default',
         });
 
+        t.equal(
+            obj.toEarlyHint(),
+            '</foo>; referrerpolicy="bar"; type="default";',
+        );
+
         const repl = new AssetJs(json);
         t.equal(repl.referrerpolicy, 'bar');
         t.end();
@@ -243,6 +248,11 @@ tap.test(
             value: '/foo',
             type: 'default',
         });
+
+        t.equal(
+            obj.toEarlyHint(),
+            '</foo>; crossorigin="bar"; type="default";',
+        );
 
         const repl = new AssetJs(json);
         t.equal(repl.crossorigin, 'bar');
@@ -269,6 +279,8 @@ tap.test(
             type: 'default',
         });
 
+        t.equal(obj.toEarlyHint(), '</foo>; integrity="bar"; type="default";');
+
         const repl = new AssetJs(json);
         t.equal(repl.integrity, 'bar');
         t.end();
@@ -294,6 +306,8 @@ tap.test(
             type: 'default',
         });
 
+        t.equal(obj.toEarlyHint(), '</foo>; nomodule="true"; type="default";');
+
         const repl = new AssetJs(json);
         t.ok(repl.nomodule);
         t.end();
@@ -317,6 +331,8 @@ tap.test('Js() - set "async" - should construct object as t.equaled', (t) => {
         type: 'default',
     });
 
+    t.equal(obj.toEarlyHint(), '</foo>; async="true"; type="default";');
+
     const repl = new AssetJs(json);
     t.ok(repl.async);
     t.end();
@@ -339,6 +355,8 @@ tap.test('Js() - set "defer" - should construct object as t.equaled', (t) => {
         type: 'default',
     });
 
+    t.equal(obj.toEarlyHint(), '</foo>; defer="true"; type="default";');
+
     const repl = new AssetJs(json);
     t.ok(repl.defer);
     t.end();
@@ -359,6 +377,8 @@ tap.test('Js() - set "type" - should construct object as t.equaled', (t) => {
         value: '/foo',
         type: 'esm',
     });
+
+    t.equal(obj.toEarlyHint(), '</foo>; type="esm";');
 
     const repl = new AssetJs(json);
     t.equal(repl.type, 'esm');
@@ -396,6 +416,8 @@ tap.test('Js() - set "data" - should construct object as t.equaled', (t) => {
         ],
         type: 'default',
     });
+
+    t.equal(obj.toEarlyHint(), '</foo>; type="default"; data-foo="bar";');
 
     const repl = new AssetJs(json);
     t.same(repl.data, [
