@@ -236,7 +236,7 @@ tap.test(
 
         t.equal(
             obj.toEarlyHint(),
-            '</foo>; crossorigin="bar"; type="text/css"; rel="stylesheet";',
+            '</foo>; crossorigin=bar; type=text/css; rel=stylesheet',
         );
 
         const repl = new AssetCss(json);
@@ -270,7 +270,7 @@ tap.test(
 
         t.equal(
             obj.toEarlyHint(),
-            '</foo>; disabled="true"; type="text/css"; rel="stylesheet";',
+            '</foo>; disabled=true; type=text/css; rel=stylesheet',
         );
 
         const repl = new AssetCss(json);
@@ -304,7 +304,7 @@ tap.test(
 
         t.equal(
             obj.toEarlyHint(),
-            '</foo>; hreflang="bar"; type="text/css"; rel="stylesheet";',
+            '</foo>; hreflang=bar; type=text/css; rel=stylesheet',
         );
 
         const repl = new AssetCss(json);
@@ -336,7 +336,7 @@ tap.test('Css() - set "title" - should construct object as expected', (t) => {
 
     t.equal(
         obj.toEarlyHint(),
-        '</foo>; title="bar"; type="text/css"; rel="stylesheet";',
+        '</foo>; title=bar; type=text/css; rel=stylesheet',
     );
 
     const repl = new AssetCss(json);
@@ -367,7 +367,7 @@ tap.test('Css() - set "media" - should construct object as expected', (t) => {
 
     t.equal(
         obj.toEarlyHint(),
-        '</foo>; media="bar"; type="text/css"; rel="stylesheet";',
+        '</foo>; media=bar; type=text/css; rel=stylesheet',
     );
 
     const repl = new AssetCss(json);
@@ -392,7 +392,7 @@ tap.test('Css() - set "type" - should construct object as expected', (t) => {
         rel: 'stylesheet',
     });
 
-    t.equal(obj.toEarlyHint(), '</foo>; type="bar"; rel="stylesheet";');
+    t.equal(obj.toEarlyHint(), '</foo>; type=bar; rel=stylesheet');
 
     const repl = new AssetCss(json);
     t.equal(repl.type, 'bar');
@@ -416,7 +416,7 @@ tap.test('Css() - set "rel" - should construct object as expected', (t) => {
         rel: 'bar',
     });
 
-    t.equal(obj.toEarlyHint(), '</foo>; type="text/css"; rel="bar";');
+    t.equal(obj.toEarlyHint(), '</foo>; type=text/css; rel=bar');
 
     const repl = new AssetCss(json);
     t.equal(repl.rel, 'bar');
@@ -444,10 +444,7 @@ tap.test('Css() - set "as" - should construct object as expected', (t) => {
         rel: 'stylesheet',
     });
 
-    t.equal(
-        obj.toEarlyHint(),
-        '</foo>; type="text/css"; rel="stylesheet"; as="bar";',
-    );
+    t.equal(obj.toEarlyHint(), '</foo>; type=text/css; rel=stylesheet; as=bar');
 
     const repl = new AssetCss(json);
     t.equal(repl.as, 'bar');
