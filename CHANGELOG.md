@@ -1,3 +1,10 @@
+# [5.1.0](https://github.com/podium-lib/utils/compare/v5.0.7...v5.1.0) (2024-08-18)
+
+
+### Features
+
+* add toEarlyHint methods to Asset classes ([150b6e2](https://github.com/podium-lib/utils/commit/150b6e2cca915d60e7832ea03b42dc85a05ebca3))
+
 ## [5.0.7](https://github.com/podium-lib/utils/compare/v5.0.6...v5.0.7) (2024-05-15)
 
 
