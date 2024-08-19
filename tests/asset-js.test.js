@@ -455,6 +455,7 @@ tap.test('Js() - set "src"', (t) => {
 
 tap.test('Js() - validate object against schema - should validate', (t) => {
     const obj = new AssetJs({ value: '/foo' });
+    // @ts-expect-error TODO: should the schema accept boolean for crossorigin?
     t.notOk(schema.js([obj]).error);
     t.end();
 });
