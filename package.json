@@ -33,11 +33,11 @@
     "bench": "node benchmark/benchmark.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "test": "run-s test:unit test:types",
-    "test:unit": "tap --no-check-coverage",
-    "test:types": "tsc --project tsconfig.test.json",
-    "test:snapshots:update": "tap --snapshot",
-    "types": "tsc --declaration --emitDeclarationOnly"
+    "test": "tap --no-check-coverage",
+    "test:snapshots": "tap --snapshot",
+    "types": "run-s types:tsc types:test",
+    "types:tsc": "tsc --declaration --emitDeclarationOnly",
+    "types:test": "tsc --project tsconfig.test.json"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.24.7",

@@ -19,7 +19,9 @@ tap.test('.document() - no arguments given', (t) => {
 
 tap.test('.document() - arguments given', (t) => {
     const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES);
+    // @ts-expect-error Limited test
     incoming.css = [{ value: 'http://somecssurl.com' }];
+    // @ts-expect-error Limited test
     incoming.js = [{ value: 'http://somejsurl.com' }];
     incoming.context = {
         locale: 'en-NZ',
@@ -42,13 +44,19 @@ tap.test(
     (t) => {
         const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES);
         incoming.css = [
+            // @ts-expect-error Limited test
             { value: 'http://somecssurl1.com', type: 'text/css' },
+            // @ts-expect-error
             { value: 'http://somecssurl2.com', type: 'text/css' },
+            // @ts-expect-error
             { value: 'http://somecssurl3.com', type: 'text/css' },
         ];
         incoming.js = [
+            // @ts-expect-error
             { value: 'http://somejsurl1.com', type: 'default' },
+            // @ts-expect-error
             { value: 'http://somejsurl2.com', type: 'default' },
+            // @ts-expect-error
             { value: 'http://somejsurl3.com', type: 'default' },
         ];
 
@@ -61,13 +69,19 @@ tap.test(
 tap.test('.document() - js "type" is "esm"', (t) => {
     const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES);
     incoming.css = [
+        // @ts-expect-error Limited test
         { value: 'http://somecssurl1.com', type: 'text/css' },
+        // @ts-expect-error
         { value: 'http://somecssurl2.com', type: 'text/css' },
+        // @ts-expect-error
         { value: 'http://somecssurl3.com', type: 'text/css' },
     ];
     incoming.js = [
+        // @ts-expect-error
         { value: 'http://somejsurl1.com', type: 'esm' },
+        // @ts-expect-error
         { value: 'http://somejsurl2.com', type: 'esm' },
+        // @ts-expect-error
         { value: 'http://somejsurl3.com', type: 'esm' },
     ];
 
@@ -80,18 +94,22 @@ tap.test(
     '.document() - "type" is "module", "strategy" is set - should place assets based on strategy',
     (t) => {
         const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES);
+        // @ts-expect-error Limited test
         incoming.css = [{ value: 'http://somecssurl1.com', type: 'text/css' }];
         incoming.js = [
+            // @ts-expect-error Limited test
             {
                 value: 'http://somejsurl1.com/lazy',
                 type: 'module',
                 strategy: 'lazy',
             },
+            // @ts-expect-error Limited test
             {
                 value: 'http://somejsurl2.com/before',
                 type: 'module',
                 strategy: 'beforeInteractive',
             },
+            // @ts-expect-error Limited test
             {
                 value: 'http://somejsurl3.com/after',
                 type: 'module',
