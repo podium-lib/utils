@@ -477,7 +477,7 @@ tap.test('Css() - set "href" - should throw', (t) => {
 
 tap.test('Css() - validate object against schema - should validate', (t) => {
     const obj = new AssetCss({ value: '/foo' });
-    // @ts-expect-error TODO: should the schema accept boolean for crossorigin?
+    // @ts-expect-error Object model w/ `boolean` doesn't match the spec (#255)
     t.notOk(schema.css([obj]).error);
     t.end();
 });
