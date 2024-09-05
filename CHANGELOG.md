@@ -1,3 +1,10 @@
+# [5.2.0](https://github.com/podium-lib/utils/compare/v5.1.0...v5.2.0) (2024-09-05)
+
+
+### Features
+
+* add asset-type link header attribute and set to either style or script ([0a02da6](https://github.com/podium-lib/utils/commit/0a02da66d89ce0533f65de3036dace9d31d7b85d))
+
 # [5.1.0](https://github.com/podium-lib/utils/compare/v5.0.7...v5.1.0) (2024-08-18)
 
 
