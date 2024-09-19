@@ -370,7 +370,7 @@ tap.test('can read values from view with default types', (t) => {
     incoming.hints.addExpectedHint('foo');
     incoming.hints.addExpectedHint('bar');
 
-    incoming.hints.on('hints-received', () => {
+    incoming.hints.on('complete', () => {
         t.ok(incoming.hints.allHintsReceived);
         t.end();
     });
