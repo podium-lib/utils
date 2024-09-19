@@ -455,7 +455,7 @@ tap.test('Js() - set "src"', (t) => {
 
 tap.test('Js() - validate object against schema - should validate', (t) => {
     const obj = new AssetJs({ value: '/foo' });
-    // @ts-ignore
+    // @ts-expect-error schema types not lining up, we should revisit
     t.notOk(schema.js([obj]).error);
     t.end();
 });
