@@ -1,3 +1,10 @@
+## [5.2.1](https://github.com/podium-lib/utils/compare/v5.2.0...v5.2.1) (2024-09-20)
+
+
+### Bug Fixes
+
+* remove asset type header tagging ([ff16547](https://github.com/podium-lib/utils/commit/ff16547877ee5722445a1ab9e52ebd74b5a7ffe8))
+
 # [5.2.0](https://github.com/podium-lib/utils/compare/v5.1.0...v5.2.0) (2024-09-05)
 
 
