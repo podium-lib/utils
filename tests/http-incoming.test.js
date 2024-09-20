@@ -358,3 +358,23 @@ tap.test('can read values from view with default types', (t) => {
     t.ok(incoming);
     t.end();
 });
+
+tap.test('can read values from view with default types', (t) => {
+    t.plan(1);
+    // really only here for tsc
+
+    /**
+     * @type {HttpIncoming}
+     */
+    const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES);
+    incoming.hints.addExpectedHint('foo');
+    incoming.hints.addExpectedHint('bar');
+
+    incoming.hints.on('complete', () => {
+        t.ok(incoming.hints.allHintsReceived);
+        t.end();
+    });
+
+    incoming.hints.addReceivedHint('foo');
+    incoming.hints.addReceivedHint('bar');
+});
