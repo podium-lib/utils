@@ -1,3 +1,10 @@
+# [5.3.0](https://github.com/podium-lib/utils/compare/v5.2.1...v5.3.0) (2024-09-20)
+
+
+### Features
+
+* add early hint tracking to html-template ([e9b5867](https://github.com/podium-lib/utils/commit/e9b5867e49f8fa79bcb05e8f749ef6ef0784c1ae))
+
 ## [5.2.1](https://github.com/podium-lib/utils/compare/v5.2.0...v5.2.1) (2024-09-20)
 
 
