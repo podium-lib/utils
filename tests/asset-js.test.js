@@ -219,10 +219,7 @@ tap.test(
             type: 'default',
         });
 
-        t.equal(
-            obj.toHeader(),
-            '</foo>; referrerpolicy=bar; type=default; asset-type=script',
-        );
+        t.equal(obj.toHeader(), '</foo>; referrerpolicy=bar; type=default');
 
         const repl = new AssetJs(json);
         t.equal(repl.referrerpolicy, 'bar');
@@ -249,10 +246,7 @@ tap.test(
             type: 'default',
         });
 
-        t.equal(
-            obj.toHeader(),
-            '</foo>; crossorigin=bar; type=default; asset-type=script',
-        );
+        t.equal(obj.toHeader(), '</foo>; crossorigin=bar; type=default');
 
         const repl = new AssetJs(json);
         t.equal(repl.crossorigin, 'bar');
@@ -279,10 +273,7 @@ tap.test(
             type: 'default',
         });
 
-        t.equal(
-            obj.toHeader(),
-            '</foo>; integrity=bar; type=default; asset-type=script',
-        );
+        t.equal(obj.toHeader(), '</foo>; integrity=bar; type=default');
 
         const repl = new AssetJs(json);
         t.equal(repl.integrity, 'bar');
@@ -309,10 +300,7 @@ tap.test(
             type: 'default',
         });
 
-        t.equal(
-            obj.toHeader(),
-            '</foo>; nomodule=true; type=default; asset-type=script',
-        );
+        t.equal(obj.toHeader(), '</foo>; nomodule=true; type=default');
 
         const repl = new AssetJs(json);
         t.ok(repl.nomodule);
@@ -337,10 +325,7 @@ tap.test('Js() - set "async" - should construct object as t.equaled', (t) => {
         type: 'default',
     });
 
-    t.equal(
-        obj.toHeader(),
-        '</foo>; async=true; type=default; asset-type=script',
-    );
+    t.equal(obj.toHeader(), '</foo>; async=true; type=default');
 
     const repl = new AssetJs(json);
     t.ok(repl.async);
@@ -364,10 +349,7 @@ tap.test('Js() - set "defer" - should construct object as t.equaled', (t) => {
         type: 'default',
     });
 
-    t.equal(
-        obj.toHeader(),
-        '</foo>; defer=true; type=default; asset-type=script',
-    );
+    t.equal(obj.toHeader(), '</foo>; defer=true; type=default');
 
     const repl = new AssetJs(json);
     t.ok(repl.defer);
@@ -390,7 +372,7 @@ tap.test('Js() - set "type" - should construct object as t.equaled', (t) => {
         type: 'esm',
     });
 
-    t.equal(obj.toHeader(), '</foo>; type=esm; asset-type=script');
+    t.equal(obj.toHeader(), '</foo>; type=esm');
 
     const repl = new AssetJs(json);
     t.equal(repl.type, 'esm');
@@ -429,10 +411,7 @@ tap.test('Js() - set "data" - should construct object as t.equaled', (t) => {
         type: 'default',
     });
 
-    t.equal(
-        obj.toHeader(),
-        '</foo>; type=default; data-foo=bar; asset-type=script',
-    );
+    t.equal(obj.toHeader(), '</foo>; type=default; data-foo=bar');
 
     const repl = new AssetJs(json);
     t.same(repl.data, [
@@ -476,6 +455,7 @@ tap.test('Js() - set "src"', (t) => {
 
 tap.test('Js() - validate object against schema - should validate', (t) => {
     const obj = new AssetJs({ value: '/foo' });
+    // @ts-ignore
     t.notOk(schema.js([obj]).error);
     t.end();
 });
