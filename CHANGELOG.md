@@ -1,3 +1,10 @@
+## [5.3.1](https://github.com/podium-lib/utils/compare/v5.3.0...v5.3.1) (2024-09-22)
+
+
+### Bug Fixes
+
+* receive and emit hinted assets ([a07e0e3](https://github.com/podium-lib/utils/commit/a07e0e3b69d0a372d20417d9410bd50698c9af19))
+
 # [5.3.0](https://github.com/podium-lib/utils/compare/v5.2.1...v5.3.0) (2024-09-20)
 
 
