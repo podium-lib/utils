@@ -33,15 +33,16 @@
     "bench": "node benchmark/benchmark.js",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "test": "run-s test:unit test:types",
-    "test:unit": "tap --no-check-coverage",
-    "test:types": "tsc --project tsconfig.test.json",
+    "test": "tap --no-check-coverage",
     "test:snapshots:update": "tap --snapshot",
-    "types": "tsc --declaration --emitDeclarationOnly"
+    "types": "run-s types:tsc types:test",
+    "types:tsc": "tsc --declaration --emitDeclarationOnly",
+    "types:test": "tsc --project tsconfig.test.json"
   },
   "devDependencies": {
     "@podium/eslint-config": "1.0.0",
     "@podium/schemas": "5.0.6",
+    "@podium/typescript-config": "1.0.0",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "13.0.0",
     "@semantic-release/git": "10.0.1",
