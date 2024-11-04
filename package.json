@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "@podium/eslint-config": "1.0.2",
-    "@podium/schemas": "5.0.6",
+    "@podium/schemas": "5.1.0",
     "@podium/semantic-release-config": "2.0.0",
     "@podium/typescript-config": "1.0.0",
     "@types/node": "22.8.6",
