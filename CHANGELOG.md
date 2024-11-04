@@ -1,3 +1,10 @@
+## [5.3.2](https://github.com/podium-lib/utils/compare/v5.3.1...v5.3.2) (2024-11-04)
+
+
+### Bug Fixes
+
+* update @podium/schemas to 5.1.0 ([67d630b](https://github.com/podium-lib/utils/commit/67d630bf2be5ca94ccd37417cc59e39339b8ab6a))
+
 ## [5.3.1](https://github.com/podium-lib/utils/compare/v5.3.0...v5.3.1) (2024-09-22)
 
 
