@@ -1,26 +1,26 @@
 import tap from 'tap';
-import { Hints } from '../lib/hints.js';
+import { Assets } from '../lib/assets.js';
 
 tap.test('Hints() - allHintsReceived property - should be true', (t) => {
-    const hints = new Hints();
-    hints.addExpectedHint('foo');
-    hints.addExpectedHint('bar');
-    hints.addReceivedHint('foo', {
+    const assets = new Assets();
+    assets.addExpectedAsset('foo');
+    assets.addExpectedAsset('bar');
+    assets.addReceivedAsset('foo', {
         js: [{ value: 'foo.js' }],
         css: [{ value: 'foo.css' }],
     });
-    hints.addReceivedHint('bar', {
+    assets.addReceivedAsset('bar', {
         js: [{ value: 'foo.js' }],
         css: [{ value: 'foo.css' }],
     });
-    t.equal(hints.allHintsReceived, true);
+    t.equal(assets.allAssetsReceived, true);
     t.end();
 });
 
-tap.test('Hints() - complete event - should fire', (t) => {
+tap.test('Hints() - received event - should fire', (t) => {
     t.plan(6);
-    const hints = new Hints();
-    hints.on('complete', ({ js, css }) => {
+    const assets = new Assets();
+    assets.on('received', ({ js, css }) => {
         t.equal(js.length, 2);
         t.equal(css.length, 2);
         t.equal(js[0].value, 'foo.js');
@@ -29,13 +29,13 @@ tap.test('Hints() - complete event - should fire', (t) => {
         t.equal(css[1].value, 'foo.css');
         t.end();
     });
-    hints.addExpectedHint('foo');
-    hints.addExpectedHint('bar');
-    hints.addReceivedHint('foo', {
+    assets.addExpectedAsset('foo');
+    assets.addExpectedAsset('bar');
+    assets.addReceivedAsset('foo', {
         js: [{ value: 'foo.js' }],
         css: [{ value: 'foo.css' }],
     });
-    hints.addReceivedHint('bar', {
+    assets.addReceivedAsset('bar', {
         js: [{ value: 'foo.js' }],
         css: [{ value: 'foo.css' }],
     });

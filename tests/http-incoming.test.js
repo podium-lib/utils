@@ -367,14 +367,20 @@ tap.test('can read values from view with default types', (t) => {
      * @type {HttpIncoming}
      */
     const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES);
-    incoming.hints.addExpectedHint('foo');
-    incoming.hints.addExpectedHint('bar');
+    incoming.assets.addExpectedAsset('foo');
+    incoming.assets.addExpectedAsset('bar');
 
-    incoming.hints.on('complete', () => {
-        t.ok(incoming.hints.allHintsReceived);
+    incoming.assets.on('received', () => {
+        t.ok(incoming.assets.allAssetsReceived);
         t.end();
     });
 
-    incoming.hints.addReceivedHint('foo');
-    incoming.hints.addReceivedHint('bar');
+    incoming.assets.addReceivedAsset('foo', {
+        js: [{ value: 'foo.js' }],
+        css: [{ value: 'foo.css' }],
+    });
+    incoming.assets.addReceivedAsset('bar', {
+        js: [{ value: 'foo.js' }],
+        css: [{ value: 'foo.css' }],
+    });
 });
