@@ -407,28 +407,31 @@ tap.test('can wait for expected assets', (t) => {
     });
 });
 
-tap.test('waitForAssets will resolve even if all assets have already been received', async (t) => {
-    t.plan(3);
-    /**
-     * @type {HttpIncoming}
-     */
-    const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES);
-    incoming.assets.addExpectedAsset('foo');
-    incoming.assets.addExpectedAsset('bar');
+tap.test(
+    'waitForAssets will resolve even if all assets have already been received',
+    async (t) => {
+        t.plan(3);
+        /**
+         * @type {HttpIncoming}
+         */
+        const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES);
+        incoming.assets.addExpectedAsset('foo');
+        incoming.assets.addExpectedAsset('bar');
 
-    incoming.assets.addReceivedAsset('foo', {
-        js: [{ value: 'foo.js' }],
-        css: [{ value: 'foo.css' }],
-    });
-    incoming.assets.addReceivedAsset('bar', {
-        js: [{ value: 'foo.js' }],
-        css: [{ value: 'foo.css' }],
-    });
+        incoming.assets.addReceivedAsset('foo', {
+            js: [{ value: 'foo.js' }],
+            css: [{ value: 'foo.css' }],
+        });
+        incoming.assets.addReceivedAsset('bar', {
+            js: [{ value: 'foo.js' }],
+            css: [{ value: 'foo.css' }],
+        });
 
-    const { js, css } = await incoming.waitForAssets();
+        const { js, css } = await incoming.waitForAssets();
 
-    t.ok(incoming.assets.allAssetsReceived);
-    t.same(js, [{ value: 'foo.js' }, { value: 'foo.js' }]);
-    t.same(css, [{ value: 'foo.css' }, { value: 'foo.css' }]);
-    t.end();
-});
+        t.ok(incoming.assets.allAssetsReceived);
+        t.same(js, [{ value: 'foo.js' }, { value: 'foo.js' }]);
+        t.same(css, [{ value: 'foo.css' }, { value: 'foo.css' }]);
+        t.end();
+    },
+);
