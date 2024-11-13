@@ -359,22 +359,79 @@ tap.test('can read values from view with default types', (t) => {
     t.end();
 });
 
-tap.test('can read values from view with default types', (t) => {
+tap.test('can set asset expectations and receive assets', (t) => {
     t.plan(1);
-    // really only here for tsc
-
     /**
      * @type {HttpIncoming}
      */
     const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES);
-    incoming.hints.addExpectedHint('foo');
-    incoming.hints.addExpectedHint('bar');
+    incoming.assets.addExpectedAsset('foo');
+    incoming.assets.addExpectedAsset('bar');
 
-    incoming.hints.on('complete', () => {
-        t.ok(incoming.hints.allHintsReceived);
+    incoming.assets.on('received', () => {
+        t.ok(incoming.assets.allAssetsReceived);
         t.end();
     });
 
-    incoming.hints.addReceivedHint('foo');
-    incoming.hints.addReceivedHint('bar');
+    incoming.assets.addReceivedAsset('foo', {
+        js: [{ value: 'foo.js' }],
+        css: [{ value: 'foo.css' }],
+    });
+    incoming.assets.addReceivedAsset('bar', {
+        js: [{ value: 'foo.js' }],
+        css: [{ value: 'foo.css' }],
+    });
 });
+
+tap.test('can wait for expected assets', (t) => {
+    t.plan(1);
+    /**
+     * @type {HttpIncoming}
+     */
+    const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES);
+    incoming.assets.addExpectedAsset('foo');
+    incoming.assets.addExpectedAsset('bar');
+
+    incoming.waitForAssets().then(() => {
+        t.ok(incoming.assets.allAssetsReceived);
+        t.end();
+    });
+
+    incoming.assets.addReceivedAsset('foo', {
+        js: [{ value: 'foo.js' }],
+        css: [{ value: 'foo.css' }],
+    });
+    incoming.assets.addReceivedAsset('bar', {
+        js: [{ value: 'foo.js' }],
+        css: [{ value: 'foo.css' }],
+    });
+});
+
+tap.test(
+    'waitForAssets will resolve even if all assets have already been received',
+    async (t) => {
+        t.plan(3);
+        /**
+         * @type {HttpIncoming}
+         */
+        const incoming = new HttpIncoming(SIMPLE_REQ, SIMPLE_RES);
+        incoming.assets.addExpectedAsset('foo');
+        incoming.assets.addExpectedAsset('bar');
+
+        incoming.assets.addReceivedAsset('foo', {
+            js: [{ value: 'foo.js' }],
+            css: [{ value: 'foo.css' }],
+        });
+        incoming.assets.addReceivedAsset('bar', {
+            js: [{ value: 'foo.js' }],
+            css: [{ value: 'foo.css' }],
+        });
+
+        const { js, css } = await incoming.waitForAssets();
+
+        t.ok(incoming.assets.allAssetsReceived);
+        t.same(js, [{ value: 'foo.js' }, { value: 'foo.js' }]);
+        t.same(css, [{ value: 'foo.css' }, { value: 'foo.css' }]);
+        t.end();
+    },
+);
