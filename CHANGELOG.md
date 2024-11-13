@@ -1,3 +1,15 @@
+# [5.4.0](https://github.com/podium-lib/utils/compare/v5.3.2...v5.4.0) (2024-11-13)
+
+
+### Bug Fixes
+
+* refactor hints to assets ([fa85f8a](https://github.com/podium-lib/utils/commit/fa85f8a121b4c0bfa11fe16df1670c3093f30a96))
+
+
+### Features
+
+* add waitForAssets method ([c4aaaf2](https://github.com/podium-lib/utils/commit/c4aaaf2cf90880d2c69a0ae1577b1676fc5e31ff))
+
 ## [5.3.2](https://github.com/podium-lib/utils/compare/v5.3.1...v5.3.2) (2024-11-04)
 
 
