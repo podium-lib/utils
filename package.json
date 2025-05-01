@@ -44,7 +44,7 @@
     "@podium/schemas": "5.1.0",
     "@podium/semantic-release-config": "2.0.0",
     "@podium/typescript-config": "1.0.0",
-    "@types/node": "22.13.17",
+    "@types/node": "22.15.3",
     "benchmark": "2.1.4",
     "eslint": "9.25.1",
     "npm-run-all2": "5.0.2",
