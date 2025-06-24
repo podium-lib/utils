@@ -1,3 +1,10 @@
+# [5.5.0](https://github.com/podium-lib/utils/compare/v5.4.0...v5.5.0) (2025-06-24)
+
+
+### Features
+
+* add `html` tagged template literal for podiumSend ([#286](https://github.com/podium-lib/utils/issues/286)) ([03e994e](https://github.com/podium-lib/utils/commit/03e994e6f88ed4db5cbe216bc7b264568cb7679f))
+
 # [5.4.0](https://github.com/podium-lib/utils/compare/v5.3.2...v5.4.0) (2024-11-13)
 
 
