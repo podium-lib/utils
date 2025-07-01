@@ -481,3 +481,21 @@ tap.test('Css() - validate object against schema - should validate', (t) => {
     t.notOk(schema.css([obj]).error);
     t.end();
 });
+
+tap.test('Css() - works with structuredClone', (t) => {
+    const original = new AssetCss({ value: '/foo', scope: 'shadow-dom' });
+    const clone = structuredClone(original);
+
+    t.notEqual(
+        clone,
+        original,
+        'Expected structuredClone to produce a different instance',
+    );
+
+    t.equal(typeof original, 'object');
+
+    t.equal(clone.value, original.value);
+    t.equal(clone.scope, original.scope);
+
+    t.end();
+});

@@ -470,3 +470,22 @@ tap.test('Js() - ignores async if both id and defer are set', (t) => {
     t.notOk(asset.async, 'Async should be ignored if defer is set');
     t.end();
 });
+
+tap.test('Js() - works with structuredClone', (t) => {
+    const original = new AssetJs({ value: '/foo', async: true });
+    const clone = structuredClone(original);
+
+    t.notEqual(
+        clone,
+        original,
+        'Expected structuredClone to produce a different instance',
+    );
+
+    t.equal(typeof original, 'object');
+
+    t.equal(clone.value, original.value);
+    t.equal(clone.async, original.async);
+
+    t.end();
+});
+
