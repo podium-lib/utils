@@ -41,15 +41,15 @@
   },
   "devDependencies": {
     "@podium/client": "5.4.1",
-    "@podium/eslint-config": "1.0.19",
+    "@podium/eslint-config": "1.0.21",
     "@podium/schemas": "5.1.0",
     "@podium/semantic-release-config": "3.0.0",
     "@podium/typescript-config": "1.0.0",
     "@types/node": "24.10.9",
     "benchmark": "2.1.4",
-    "eslint": "9.39.1",
+    "eslint": "9.39.2",
     "npm-run-all2": "8.0.4",
-    "prettier": "3.7.3",
+    "prettier": "3.8.1",
     "semantic-release": "25.0.2",
     "tap": "21.5.0",
     "typescript": "5.9.3"
