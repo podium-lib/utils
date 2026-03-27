@@ -99,6 +99,7 @@ tap.test('PodiumHttpIncoming.request - set value', (t) => {
     const incoming = new HttpIncoming(ADVANCED_REQ, SIMPLE_RES);
     t.throws(
         () => {
+            // @ts-expect-error Testing bad input
             incoming.request = 'foo';
         },
         /Cannot set read-only property./,
@@ -112,6 +113,7 @@ tap.test('PodiumHttpIncoming.response - set value', (t) => {
     const incoming = new HttpIncoming(ADVANCED_REQ, SIMPLE_RES);
     t.throws(
         () => {
+            // @ts-expect-error Testing bad input
             incoming.response = 'foo';
         },
         /Cannot set read-only property./,

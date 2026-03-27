@@ -1,7 +1,9 @@
 {
-    "extends": "@podium/typescript-config/module.json",
-    "include": ["./lib/**/*.js"],
-    "compilerOptions": {
-        "outDir": "types"
-    }
+  "extends": "@podium/typescript-config/module.json",
+  "include": ["./lib/**/*.js"],
+  "compilerOptions": {
+    "types": ["node", "escape-html"],
+    "rootDir": "lib",
+    "outDir": "types"
+  }
 }

@@ -820,7 +820,9 @@ tap.test(
     (t) => {
         const context = {
             'podium-foo': 'bar',
-            'podium-bar': (name) => `${name}-test`,
+            'podium-bar':
+                /** @param {unknown} name  */
+                (name) => `${name}-test`,
         };
 
         const headers = {
