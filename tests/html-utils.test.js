@@ -165,14 +165,22 @@ tap.test(
     '.buildLinkElement() - properties are "null" - should NOT appended attributes to element',
     (t) => {
         const obj = new AssetCss({
+            // @ts-expect-error Testing bad input
             crossorigin: null,
+            // @ts-expect-error Testing bad input
             disabled: null,
+            // @ts-expect-error Testing bad input
             hreflang: null,
+            // @ts-expect-error Testing bad input
             title: null,
+            // @ts-expect-error Testing bad input
             media: null,
             value: '/foo',
+            // @ts-expect-error Testing bad input
             type: null,
+            // @ts-expect-error Testing bad input
             rel: null,
+            // @ts-expect-error Testing bad input
             as: null,
         });
         const result = utils.buildLinkElement(obj);
@@ -425,13 +433,20 @@ tap.test(
     '.buildScriptElement() - properties are "null" - should NOT appended attributes to element',
     (t) => {
         const obj = new AssetJs({
+            // @ts-expect-error Testing bad input
             referrerpolicy: null,
+            // @ts-expect-error Testing bad input
             crossorigin: null,
+            // @ts-expect-error Testing bad input
             integrity: null,
+            // @ts-expect-error Testing bad input
             nomodule: null,
+            // @ts-expect-error Testing bad input
             async: null,
+            // @ts-expect-error Testing bad input
             defer: null,
             value: '/foo',
+            // @ts-expect-error Testing bad input
             type: null,
         });
         const result = utils.buildScriptElement(obj);
