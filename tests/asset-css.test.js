@@ -25,6 +25,7 @@ tap.test(
     (t) => {
         const obj = new AssetCss({ value: '/foo' });
         t.equal(obj.crossorigin, undefined);
+        t.equal(obj.fetchpriority, '');
         t.notOk(obj.disabled);
         t.equal(obj.hreflang, '');
         t.equal(obj.value, '/foo');
@@ -241,6 +242,40 @@ tap.test(
 
         const repl = new AssetCss(json);
         t.equal(repl.crossorigin, 'bar');
+        t.end();
+    },
+);
+
+tap.test(
+    'Css() - set "fetchpriority" - should construct object as expected',
+    (t) => {
+        const obj = new AssetCss({
+            value: '/foo',
+        });
+
+        obj.fetchpriority = 'high';
+
+        t.equal(obj.fetchpriority, 'high');
+        t.equal(
+            obj.toHTML(),
+            '<link href="/foo" fetchpriority="high" type="text/css" rel="stylesheet">',
+        );
+
+        const json = JSON.parse(JSON.stringify(obj));
+        t.same(json, {
+            fetchpriority: 'high',
+            value: '/foo',
+            type: 'text/css',
+            rel: 'stylesheet',
+        });
+
+        t.equal(
+            obj.toHeader(),
+            '</foo>; fetchpriority=high; type=text/css; rel=stylesheet',
+        );
+
+        const repl = new AssetCss(json);
+        t.equal(repl.fetchpriority, 'high');
         t.end();
     },
 );

@@ -36,6 +36,22 @@ tap.test(
 );
 
 tap.test(
+    '.buildLinkElement() - "fetchpriority" property has a value - should append "fetchpriority" attribute to element',
+    (t) => {
+        const obj = new AssetCss({
+            value: '/foo',
+            fetchpriority: 'low',
+        });
+        const result = utils.buildLinkElement(obj);
+        t.equal(
+            result,
+            '<link href="/foo" fetchpriority="low" type="text/css" rel="stylesheet">',
+        );
+        t.end();
+    },
+);
+
+tap.test(
     '.buildLinkElement() - "disabled" property is "true" - should appended "disabled" attribute to element',
     (t) => {
         const obj = new AssetCss({
@@ -146,6 +162,7 @@ tap.test(
     (t) => {
         const obj = new AssetCss({
             crossorigin: undefined,
+            fetchpriority: undefined,
             disabled: undefined,
             hreflang: undefined,
             title: undefined,
@@ -166,6 +183,7 @@ tap.test(
     (t) => {
         const obj = new AssetCss({
             crossorigin: null,
+            fetchpriority: null,
             disabled: null,
             hreflang: null,
             title: null,
@@ -186,6 +204,8 @@ tap.test(
     (t) => {
         const obj = new AssetCss({
             crossorigin: false,
+            // @ts-ignore Testing bad input
+            fetchpriority: false,
             disabled: false,
             // @ts-ignore Testing bad input
             hreflang: false,
@@ -212,6 +232,7 @@ tap.test(
     (t) => {
         const obj = new AssetCss({
             crossorigin: '',
+            fetchpriority: '',
             // @ts-ignore Testing bad input
             disabled: '',
             hreflang: '',
@@ -302,6 +323,19 @@ tap.test(
         });
         const result = utils.buildScriptElement(obj);
         t.equal(result, '<script src="/foo"></script>');
+        t.end();
+    },
+);
+
+tap.test(
+    '.buildScriptElement() - "fetchpriority" property has a value - should append "fetchpriority" attribute to element',
+    (t) => {
+        const obj = new AssetJs({
+            value: '/foo',
+            fetchpriority: 'high',
+        });
+        const result = utils.buildScriptElement(obj);
+        t.equal(result, '<script src="/foo" fetchpriority="high"></script>');
         t.end();
     },
 );
@@ -407,6 +441,7 @@ tap.test(
     (t) => {
         const obj = new AssetJs({
             referrerpolicy: undefined,
+            fetchpriority: undefined,
             crossorigin: undefined,
             integrity: undefined,
             nomodule: undefined,
@@ -426,6 +461,7 @@ tap.test(
     (t) => {
         const obj = new AssetJs({
             referrerpolicy: null,
+            fetchpriority: null,
             crossorigin: null,
             integrity: null,
             nomodule: null,
@@ -446,6 +482,8 @@ tap.test(
         const obj = new AssetJs({
             // @ts-ignore Testing bad input
             referrerpolicy: false,
+            // @ts-ignore Testing bad input
+            fetchpriority: false,
             // @ts-ignore Testing bad input
             crossorigin: false,
             // @ts-ignore Testing bad input
@@ -468,6 +506,7 @@ tap.test(
     (t) => {
         const obj = new AssetJs({
             referrerpolicy: '',
+            fetchpriority: '',
             integrity: '',
             // @ts-ignore Testing bad input
             nomodule: '',
@@ -612,6 +651,21 @@ tap.test('.buildReactScriptAttributes()', (t) => {
     t.end();
 });
 
+tap.test(
+    '.buildReactScriptAttributes() - fetchpriority mapped to fetchPriority',
+    (t) => {
+        const obj = new AssetJs({
+            value: '/bar',
+            fetchpriority: 'high',
+        });
+        t.same(utils.buildReactScriptAttributes(obj), {
+            src: '/bar',
+            fetchPriority: 'high',
+        });
+        t.end();
+    },
+);
+
 tap.test('.buildReactLinkAttributes()', (t) => {
     const obj = new AssetCss({
         value: '/bar',
@@ -627,3 +681,20 @@ tap.test('.buildReactLinkAttributes()', (t) => {
     });
     t.end();
 });
+
+tap.test(
+    '.buildReactLinkAttributes() - fetchpriority mapped to fetchPriority',
+    (t) => {
+        const obj = new AssetCss({
+            value: '/bar',
+            fetchpriority: 'low',
+        });
+        t.same(utils.buildReactLinkAttributes(obj), {
+            href: '/bar',
+            fetchPriority: 'low',
+            type: 'text/css',
+            rel: 'stylesheet',
+        });
+        t.end();
+    },
+);

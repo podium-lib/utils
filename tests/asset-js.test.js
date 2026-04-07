@@ -25,6 +25,7 @@ tap.test(
     (t) => {
         const obj = new AssetJs({ value: '/foo' });
         t.equal(obj.referrerpolicy, '');
+        t.equal(obj.fetchpriority, '');
         t.equal(obj.crossorigin, undefined);
         t.equal(obj.integrity, '');
         t.notOk(obj.nomodule);
@@ -223,6 +224,36 @@ tap.test(
 
         const repl = new AssetJs(json);
         t.equal(repl.referrerpolicy, 'bar');
+        t.end();
+    },
+);
+
+tap.test(
+    'Js() - set "fetchpriority" - should construct object as t.equaled',
+    (t) => {
+        const obj = new AssetJs({
+            value: '/foo',
+        });
+
+        obj.fetchpriority = 'high';
+
+        t.equal(obj.fetchpriority, 'high');
+        t.equal(
+            obj.toHTML(),
+            '<script src="/foo" fetchpriority="high"></script>',
+        );
+
+        const json = JSON.parse(JSON.stringify(obj));
+        t.same(json, {
+            fetchpriority: 'high',
+            value: '/foo',
+            type: 'default',
+        });
+
+        t.equal(obj.toHeader(), '</foo>; fetchpriority=high; type=default');
+
+        const repl = new AssetJs(json);
+        t.equal(repl.fetchpriority, 'high');
         t.end();
     },
 );
