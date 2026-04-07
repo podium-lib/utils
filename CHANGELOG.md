@@ -1,3 +1,10 @@
+# [5.6.0](https://github.com/podium-lib/utils/compare/v5.5.0...v5.6.0) (2026-04-07)
+
+
+### Features
+
+* add fetchpriority attribute ([#312](https://github.com/podium-lib/utils/issues/312)) ([498bb00](https://github.com/podium-lib/utils/commit/498bb009cc22651142b4324a0b9a7e20843e39f4))
+
 # [5.5.0](https://github.com/podium-lib/utils/compare/v5.4.0...v5.5.0) (2025-06-24)
 
 
