@@ -25,7 +25,7 @@ tap.test(
     (t) => {
         const obj = new AssetCss({ value: '/foo' });
         t.equal(obj.crossorigin, undefined);
-        t.equal(obj.fetchpriority, '');
+        t.equal(obj.fetchpriority, undefined);
         t.notOk(obj.disabled);
         t.equal(obj.hreflang, '');
         t.equal(obj.value, '/foo');

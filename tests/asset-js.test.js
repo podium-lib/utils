@@ -25,7 +25,7 @@ tap.test(
     (t) => {
         const obj = new AssetJs({ value: '/foo' });
         t.equal(obj.referrerpolicy, '');
-        t.equal(obj.fetchpriority, '');
+        t.equal(obj.fetchpriority, undefined);
         t.equal(obj.crossorigin, undefined);
         t.equal(obj.integrity, '');
         t.notOk(obj.nomodule);
