@@ -42,7 +42,7 @@
   "devDependencies": {
     "@podium/client": "5.4.8",
     "@podium/eslint-config": "1.0.21",
-    "@podium/schemas": "5.1.2",
+    "@podium/schemas": "5.2.0",
     "@podium/semantic-release-config": "3.0.0",
     "@podium/typescript-config": "1.0.1",
     "@types/node": "24.10.9",
