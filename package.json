@@ -40,9 +40,9 @@
     "types:test": "tsc --project tsconfig.test.json"
   },
   "devDependencies": {
-    "@podium/client": "5.4.8",
+    "@podium/client": "5.4.10",
     "@podium/eslint-config": "1.0.21",
-    "@podium/schemas": "5.2.0",
+    "@podium/schemas": "5.2.1",
     "@podium/semantic-release-config": "3.0.0",
     "@podium/typescript-config": "1.0.1",
     "@types/node": "24.10.9",
