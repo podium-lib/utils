@@ -55,7 +55,7 @@
     "typescript": "5.9.3"
   },
   "dependencies": {
-    "camelcase": "8.0.0",
+    "camelcase": "9.0.0",
     "escape-html": "1.0.3"
   }
 }
