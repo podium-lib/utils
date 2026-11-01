@@ -43,7 +43,7 @@
     "@podium/client": "5.4.15",
     "@podium/eslint-config": "1.0.21",
     "@podium/schemas": "5.2.1",
-    "@podium/semantic-release-config": "3.0.7",
+    "@podium/semantic-release-config": "3.0.8",
     "@podium/typescript-config": "1.0.1",
     "@types/node": "24.13.3",
     "benchmark": "2.1.4",
